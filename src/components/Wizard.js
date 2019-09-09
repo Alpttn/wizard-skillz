@@ -10,6 +10,8 @@ class Wizard extends Component {
       <React.Fragment>
         <NavBar />
         <ApplicationViews />
+        <h1>Wizard Skillz</h1>
+        <h3>Begin</h3>
         </React.Fragment>
       </>
     )

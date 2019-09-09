@@ -1,7 +1,7 @@
 import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
-import Login from "./auth/Login";
-import Register from "./auth/Register";
+// import Login from "./auth/Login";
+// import Register from "./auth/Register";
 import Home from './home/Home'
 import Practice from './practice/Practice'
 
@@ -28,6 +28,10 @@ class ApplicationViews extends Component {
                         }
                     }}
                 />
+
+                <Route path="/practice" render={(props) => {
+                    return <Practice activeUser={this.activeUser} {...props}/>
+                }} />
 
 
                 {/* <Route
