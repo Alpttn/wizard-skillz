@@ -36,16 +36,16 @@ class NavBar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Home</NavLink>
+                <NavLink href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/">Spell Book</NavLink>
+                <NavLink href="/Spellbook.js">Spell Book</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/">Practice</NavLink>
+                <NavLink href="/components/practice/Practice.js">Practice</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/">My Spells</NavLink>
+                <NavLink href="/components/myspells/MySpells.js">My Spells</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
