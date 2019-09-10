@@ -68,13 +68,16 @@ class Canvas extends Component {
         this.ctx.lineCap = 'round';
         this.ctx.lineWidth = 5; //how wide the line is
         const img = this.refs.image
-        // new code to mess with from stackoverflow. it enlarges but makes it blurry
+        // new code to mess with. it enlarges but makes it blurry
         const hRatio = this.canvas.width / img.width;
         const vRatio = this.canvas.height / img.height;
         const ratio = Math.min(hRatio, vRatio);
+        // the two lines of code below center the image on the canvas. Also, everytime you leave the page it disapears 
+        var centerShift_x = (this.canvas.width - img.width * ratio) / 2; //added this.
+        var centerShift_y = (this.canvas.height - img.height * ratio) / 2; //added this.
 
         img.onload = () => {
-            this.ctx.drawImage(img, 0, 0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio)
+            this.ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio)
         }
     }
 
