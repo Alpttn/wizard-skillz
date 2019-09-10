@@ -18,6 +18,9 @@ class Practice extends Component {
         })
     };
 
+    // function to clear the canvas
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);    I need to clear the canvas but the button is on this page
+
     render() {
         console.log(this.state.spell)
         return (
@@ -35,15 +38,15 @@ class Practice extends Component {
                     }
                 </div>
                 <div>
-                <button
+                    <button
                         type="button"
-                        // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    // onClick={() => this.props.deleteTask(this.props.task.id)}
                     >
                         Save to Favorites
                     </button>
-                <button
+                    <button
                         type="button"
-                        // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    // onClick={() => this.props.deleteTask(this.props.task.id)}
                     >
                         Try Again
                     </button>
