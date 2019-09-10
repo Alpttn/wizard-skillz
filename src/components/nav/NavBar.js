@@ -39,13 +39,13 @@ class NavBar extends Component {
                 <NavLink href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/Spellbook.js">Spell Book</NavLink>
+                <NavLink href="/spellbook">Spell Book</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/practice/Practice.js">Practice</NavLink>
+                <NavLink href="/practice">Practice</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/myspells/MySpells.js">My Spells</NavLink>
+                <NavLink href="/myspells">My Spells</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
