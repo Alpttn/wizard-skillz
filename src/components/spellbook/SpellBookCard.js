@@ -8,7 +8,13 @@ class SpellBookCard extends Component {
                         <img src={require(`../images/${this.props.spell.image}`)} alt="Lumos" />
                     </picture>
                     <h3>Spell Name: <span className="card__spellbook-name">{this.props.spell.spellName}</span></h3>
-                    <p className="card__spellbook-description">{this.props.spell.description}</p>
+                    <p className="card__spellbook-description">Description: {this.props.spell.description}</p>
+                    <button
+                        type="button"
+                        // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    >
+                        Practice
+                    </button>
                 </div>
             </div>
         );
