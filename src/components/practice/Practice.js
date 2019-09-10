@@ -33,7 +33,20 @@ class Practice extends Component {
                         <Canvas spell={this.state.spell} {...this.props} /> :
                         <h1>"...Loading"</h1>
                     }
-
+                </div>
+                <div>
+                <button
+                        type="button"
+                        // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    >
+                        Save to Favorites
+                    </button>
+                <button
+                        type="button"
+                        // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    >
+                        Try Again
+                    </button>
                 </div>
             </React.Fragment>
         );
