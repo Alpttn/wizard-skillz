@@ -1,7 +1,7 @@
 // canvas.js
 
 import React, { Component } from 'react';
-// import './Canvas.css'
+import './Canvas.css'
 
 
 class Canvas extends Component {

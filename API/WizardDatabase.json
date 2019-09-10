@@ -10,5 +10,43 @@
             "password": "1234",
             "id": 2
         }
+    ],
+    "spells": [
+        {
+            "id": 1,
+            "image": "LumosW.jpg",
+            "spellName": "Lumos",
+            "description": "This spell illuminates the tip of a wand."
+        },
+        {
+            "id": 2,
+            "image": "AlohomoraW.jpg",
+            "spellName": "Alohomora",
+            "description": "This spell unlocks objects."
+        },
+        {
+            "id": 3,
+            "image": "ExpelliarmusW.jpg",
+            "spellName": "Expelliarmus",
+            "description": "This spell removes an object from a recipient's hand."
+        },
+        {
+            "id": 4,
+            "image": "WingardiumLW.jpg",
+            "spellName": "Wingardium Leviosa",
+            "description": "This spell is used to make objects fly or levitate."
+        },
+        {
+            "id": 5,
+            "image": "PetrificusW.jpg",
+            "spellName": "Petrificus Tortalis",
+            "description": "This spell turns objects into frogs."
+        },
+        {
+            "id": 6,
+            "image": "ReparoW.jpg",
+            "spellName": "Reparo",
+            "description": "This spell repares broken objects."
+        }
     ]
 }

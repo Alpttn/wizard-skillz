@@ -4,6 +4,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Home from './home/Home';
 import Practice from './practice/Practice'
+import SpellBookList from './spellbook/SpellBookList'
 
 
 class ApplicationViews extends Component {
@@ -32,7 +33,15 @@ class ApplicationViews extends Component {
                 <Route exact path="/practice" render={props => {
                     if (this.isAuthenticated()) {
                         return <Practice activeUser={this.activeUser} {...props} />
-                    }}
+                    }
+                }
+                } />
+
+                <Route exact path="/spellbook" render={props => {
+                    if (this.isAuthenticated()) {
+                        return <SpellBookList activeUser={this.activeUser} {...props} />
+                    }
+                }
                 } />
 
 
