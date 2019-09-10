@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 class SpellBookCard extends Component {
     render() {
         return (
@@ -9,12 +11,14 @@ class SpellBookCard extends Component {
                     </picture>
                     <h3>Spell Name: <span className="card__spellbook-name">{this.props.spell.spellName}</span></h3>
                     <p className="card__spellbook-description">Description: {this.props.spell.description}</p>
-                    <button
+                    <Link to={`/practice/${this.props.spell.id}`}><button>Practice</button></Link>
+                    
+                    {/* <button
                         type="button"
                         // onClick={() => this.props.deleteTask(this.props.task.id)}
                     >
                         Practice
-                    </button>
+                    </button> */}
                 </div>
             </div>
         );
