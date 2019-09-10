@@ -1,8 +1,8 @@
 import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
-// import Login from "./auth/Login";
-// import Register from "./auth/Register";
-import Home from './home/Home'
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import Home from './home/Home';
 import Practice from './practice/Practice'
 
 
@@ -14,8 +14,8 @@ class ApplicationViews extends Component {
         console.log(this.activeUser());
         return (
             <React.Fragment>
-                {/* <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} /> */}
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
 
                 <Route
                     exact
@@ -29,9 +29,11 @@ class ApplicationViews extends Component {
                     }}
                 />
 
-                <Route path="/practice" render={(props) => {
-                    return <Practice activeUser={this.activeUser} {...props}/>
-                }} />
+                <Route exact path="/practice" render={props => {
+                    if (this.isAuthenticated()) {
+                        return <Practice activeUser={this.activeUser} {...props} />
+                    }}
+                } />
 
 
                 {/* <Route
@@ -45,7 +47,6 @@ class ApplicationViews extends Component {
                         }
                     }}
                 /> */}
-
             </React.Fragment>
         )
     }

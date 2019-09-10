@@ -6,14 +6,10 @@ import ApplicationViews from "./ApplicationViews"
 class Wizard extends Component {
   render() {
     return (
-      <>
       <React.Fragment>
         <NavBar />
         <ApplicationViews />
-        <h1>Wizard Skillz</h1>
-        <h3>Begin</h3>
         </React.Fragment>
-      </>
     )
   }
 }
