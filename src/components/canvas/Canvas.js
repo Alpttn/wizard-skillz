@@ -61,16 +61,20 @@ class Canvas extends Component {
 
     componentDidMount() {
         // Here we set up the properties of the canvas element when the component mounts.
-        this.canvas.width = 700; //border of the canvas
-        this.canvas.height = 500; //border of the canvas
+        this.canvas.width = 600; //border of the canvas
+        this.canvas.height = 400; //border of the canvas
         this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
         this.ctx.lineJoin = 'round';
         this.ctx.lineCap = 'round';
         this.ctx.lineWidth = 5; //how wide the line is
-        const img = this.refs.image //this.props.spell.image??
+        const img = this.refs.image
+        // new code to mess with from stackoverflow. it enlarges but makes it blurry
+        const hRatio = this.canvas.width / img.width;
+        const vRatio = this.canvas.height / img.height;
+        const ratio = Math.min(hRatio, vRatio);
 
         img.onload = () => {
-            this.ctx.drawImage(img, 0, 0)
+            this.ctx.drawImage(img, 0, 0, img.width, img.height, 0,0,img.width*ratio, img.height*ratio)
         }
     }
 
