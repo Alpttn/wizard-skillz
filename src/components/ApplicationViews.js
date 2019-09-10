@@ -30,7 +30,7 @@ class ApplicationViews extends Component {
                     }}
                 />
 
-                <Route exact path="/practice/:animalId(\d+)" render={props => {
+                <Route exact path="/practice/:spellId(\d+)" render={props => {
                     if (this.isAuthenticated()) {
                         return <Practice activeUser={this.activeUser} {...props} />
                     }

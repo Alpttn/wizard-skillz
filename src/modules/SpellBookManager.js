@@ -6,6 +6,13 @@ export default {
             result.json()
         );
     },
+    getSpell(id) {
+        console.log("hi")
+        console.log(`${remoteURL}/spells/${id}`)
+        return fetch(`${remoteURL}/spells/${id}`).then(result =>
+            result.json()
+        );
+    },
 
 
 };
