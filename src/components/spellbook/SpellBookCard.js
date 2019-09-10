@@ -7,8 +7,8 @@ class SpellBookCard extends Component {
                     <picture>
                         <img src={require(`../images/${this.props.spell.image}`)} alt="Lumos" />
                     </picture>
-                    <h3>Spell Name: <span className="card__spellbook-name">Lumos</span></h3>
-                    <p className="card__spellbook-description">Description: This spell creates light.</p>
+                    <h3>Spell Name: <span className="card__spellbook-name">{this.props.spell.spellName}</span></h3>
+                    <p className="card__spellbook-description">{this.props.spell.description}</p>
                 </div>
             </div>
         );
