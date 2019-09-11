@@ -10,6 +10,8 @@ class Canvas extends Component {
         this.onMouseDown = this.onMouseDown.bind(this); //this represents the canvas. I'm not using arrow functions so I have to bind "this" to the component instance using the bind method. 
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
+        //do i need to bind the event here?
+        this.convertImageToDataUrl = this.convertImageToDataUrl.bind(this);
     }
 
     isPainting = false; //we set painting to false first
@@ -41,7 +43,6 @@ class Canvas extends Component {
     endPaintEvent() { //this event will change the is painting to false to stop tracking the mouse movement. 
         if (this.isPainting) {
             this.isPainting = false;
-            // this.sendPaintData();
         }
     }
     paint(prevPos, currPos, strokeStyle) {
@@ -57,6 +58,11 @@ class Canvas extends Component {
         // Visualize the line using the strokeStyle
         this.ctx.stroke();
         this.prevPos = { offsetX, offsetY };
+    }
+
+    convertImageToDataUrl() {
+        const dataURL = this.canvas.toDataURL();
+        console.log(dataURL);
     }
 
     componentDidMount() {
@@ -80,7 +86,7 @@ class Canvas extends Component {
         //     this.ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio)
         // }
         img.onload = () => {
-            this.ctx.drawImage(img, 0, 0, )
+            this.ctx.drawImage(img, 0, 0)
         }
     }
 
@@ -98,10 +104,16 @@ class Canvas extends Component {
                     onMouseMove={this.onMouseMove}
                 />
                 <button
-                        type="button"
-                    // onClick={() => this.props.deleteTask(this.props.task.id)}
-                    >
-                        Try Again
+                    type="button"
+                // onClick={() => this.props.deleteTask(this.props.task.id)}
+                >
+                    Try Again
+                    </button>
+                <button
+                    type="button"
+                onClick={this.convertImageToDataUrl}
+                >
+                    Save Image to favorites
                     </button>
                 <picture>
                     <img ref="image" src={require(`../images/${this.props.spell.image}`)} className="hidden" alt={this.props.spell.spellName} />
