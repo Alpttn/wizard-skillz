@@ -97,6 +97,12 @@ class Canvas extends Component {
                     onMouseUp={this.endPaintEvent}
                     onMouseMove={this.onMouseMove}
                 />
+                <button
+                        type="button"
+                    // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    >
+                        Try Again
+                    </button>
                 <picture>
                     <img ref="image" src={require(`../images/${this.props.spell.image}`)} className="hidden" alt={this.props.spell.spellName} />
                 </picture>
