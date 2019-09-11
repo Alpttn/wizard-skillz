@@ -21,7 +21,13 @@ export default {
             },
             body: JSON.stringify(newSpell)
         }).then(data => data.json())
-    }
+    },
+    getAllMySpells() {
+        return fetch(`${remoteURL}/mySpells`).then(result =>
+            result.json()
+        );
+    },
+    
 
 
 };

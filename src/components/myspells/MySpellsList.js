@@ -10,7 +10,7 @@ class MySpellsList extends Component {
     };
 
     componentDidMount() {
-        SpellBookManager.getAllSpells().then(mySpells => { //change get all spells to getAllMySpells
+        SpellBookManager.getAllMySpells().then(mySpells => { 
           this.setState({
             mySpells: mySpells
           });
@@ -23,13 +23,13 @@ class MySpellsList extends Component {
         return (
             <React.Fragment>
                 <div className="container__mySpells-cards">
-                    {/* {this.state.mySpells.map(mySpell => (
+                    {this.state.mySpells.map(mySpell => (
                         <MySpellsCard
                             key={mySpell.id}
                             mySpell={mySpell}
                             {...this.props}
                         />
-                    ))} */}
+                    ))}
                     hello delete this
                 </div>
             </React.Fragment>
