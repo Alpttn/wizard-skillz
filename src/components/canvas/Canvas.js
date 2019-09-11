@@ -117,7 +117,7 @@ class Canvas extends Component {
         };
         // Create the canvas spell and redirect user to MySpells page
         SpellBookManager.postCanvasSpell(mySpell)
-            // .then(() => this.props.history.push("/mySpells"));
+            .then(() => this.props.history.push("/mySpells"));
     }
 
     // createNewCanvasSpell = () => {
