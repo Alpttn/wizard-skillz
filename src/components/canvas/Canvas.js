@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import './Canvas.css'
+import SpellBookManager from '../../modules/SpellBookManager';
 
 
 class Canvas extends Component {
@@ -11,8 +12,11 @@ class Canvas extends Component {
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
         //do i need to bind the event here?
-        this.convertImageToDataUrl = this.convertImageToDataUrl.bind(this);
+        this.createNewCanvasSpell = this.createNewCanvasSpell.bind(this);
     }
+    // state = {
+
+    // };
 
     isPainting = false; //we set painting to false first
     // userStrokeStyle is the color of the paint
@@ -25,6 +29,11 @@ class Canvas extends Component {
         this.isPainting = true; //when you click on the canvas this will change the is painting to true
         this.prevPos = { offsetX, offsetY }; //this will track/capture the previous position
     }
+    // onMouseDown ({ nativeEvent }) => {
+    // const { offsetX, offsetY } = nativeEvent;
+    // this.isPainting = true; //when you click on the canvas this will change the is painting to true
+    // this.prevPos = { offsetX, offsetY }; //this will track/capture the previous position
+    // }
 
     onMouseMove({ nativeEvent }) {
         if (this.isPainting) {
@@ -40,11 +49,33 @@ class Canvas extends Component {
             this.paint(this.prevPos, offSetData, this.userStrokeStyle); //pass the arguments 
         }
     }
+    // onMouseMove = (nativeEvent) => {
+        // if (this.isPainting) {
+        //     const { offsetX, offsetY } = nativeEvent;
+        //     const offSetData = { offsetX, offsetY };
+        //     // Set the start and stop position of the paint event.
+        //     const positionData = {
+        //         start: { ...this.prevPos },
+        //         stop: { ...offSetData },
+        //     };
+        //     // Add the position to the line array
+        //     this.line = this.line.concat(positionData); //string the data together to keep track of where my mouse moves
+        //     this.paint(this.prevPos, offSetData, this.userStrokeStyle); //pass the arguments 
+        // }
+    // }
+
     endPaintEvent() { //this event will change the is painting to false to stop tracking the mouse movement. 
         if (this.isPainting) {
             this.isPainting = false;
         }
     }
+
+    // endPaintEvent = () => {
+        // if (this.isPainting) {
+        //     this.isPainting = false;
+        // }
+    //}
+
     paint(prevPos, currPos, strokeStyle) {
         const { offsetX, offsetY } = currPos;
         const { offsetX: x, offsetY: y } = prevPos;
@@ -60,10 +91,46 @@ class Canvas extends Component {
         this.prevPos = { offsetX, offsetY };
     }
 
-    convertImageToDataUrl() {
+    //  paint = (prevPos, currPos, strokeStyle) => {
+        // const { offsetX, offsetY } = currPos;
+        // const { offsetX: x, offsetY: y } = prevPos;
+        // // the following methods are specific to canvas!
+        // this.ctx.beginPath(); //ctx is the variable that refers to the getContext("2d") 
+        // this.ctx.strokeStyle = strokeStyle;
+        // // Move the the prevPosition of the mouse
+        // this.ctx.moveTo(x, y);
+        // // Draw a line to the current position of the mouse
+        // this.ctx.lineTo(offsetX, offsetY);
+        // // Visualize the line using the strokeStyle
+        // this.ctx.stroke();
+        // this.prevPos = { offsetX, offsetY };
+    //}
+
+    createNewCanvasSpell() {
         const dataURL = this.canvas.toDataURL();
         console.log(dataURL);
+        const mySpell = {
+            image: dataURL,
+            notes: "",
+            spellId: this.props.activeUser().id,
+            UserId: this.props.spell.id
+        };
+        // Create the canvas spell and redirect user to MySpells page
+        SpellBookManager.postCanvasSpell(mySpell)
+            // .then(() => this.props.history.push("/mySpells"));
     }
+
+    // createNewCanvasSpell = () => {
+        // const dataURL = this.canvas.toDataURL();
+        // console.log(dataURL);
+        // const mySpell = {
+        //     image: dataURL,
+        //     notes: ""
+        // };
+        // // Create the canvas spell and redirect user to MySpells page
+        // SpellBookManager.postCanvasSpell(mySpell)
+        //     .then(() => this.props.history.push("/mySpells"));
+    //}
 
     componentDidMount() {
         // Here we set up the properties of the canvas element when the component mounts.
@@ -111,7 +178,7 @@ class Canvas extends Component {
                     </button>
                 <button
                     type="button"
-                onClick={this.convertImageToDataUrl}
+                    onClick={this.createNewCanvasSpell}
                 >
                     Save Image to favorites
                     </button>

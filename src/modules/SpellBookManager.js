@@ -13,6 +13,15 @@ export default {
             result.json()
         );
     },
+    postCanvasSpell(newSpell) {
+        return fetch(`${remoteURL}/mySpells`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newSpell)
+        }).then(data => data.json())
+    }
 
 
 };
