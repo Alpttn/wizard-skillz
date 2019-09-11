@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import './SpellBookCard.css'
 
 class SpellBookCard extends Component {
     render() {
@@ -7,7 +8,7 @@ class SpellBookCard extends Component {
             <div className="spellBook__card">
                 <div className="spellBook__card__content">
                     <picture>
-                        <img src={require(`../images/${this.props.spell.image}`)} alt="Lumos" />
+                        <img className="wand__image" src={require(`../images/${this.props.spell.image}`)} alt="Lumos" />
                     </picture>
                     <h3>Spell Name: <span className="card__spellbook-name">{this.props.spell.spellName}</span></h3>
                     <p className="card__spellbook-description">Description: {this.props.spell.description}</p>
