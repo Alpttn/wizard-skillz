@@ -112,8 +112,8 @@ class Canvas extends Component {
         const mySpell = {
             image: dataURL,
             notes: "",
-            spellId: this.props.activeUser().id,
-            UserId: this.props.spell.id
+            spellId: this.props.spell.id,
+            UserId: this.props.activeUser(), //this was passed down from application views
         };
         // Create the canvas spell and redirect user to MySpells page
         SpellBookManager.postCanvasSpell(mySpell)
