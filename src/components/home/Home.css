@@ -5,12 +5,13 @@ html body {
 .welcome__content {
     display: flex;
     justify-content: center;
-    margin: 10em;
+    margin: 6em;
 }
 
 .about__content {
     display: flex;
     justify-content: center;
+    margin: 5em;
 }
 
 .begin__button {
