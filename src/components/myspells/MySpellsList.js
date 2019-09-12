@@ -4,6 +4,7 @@ import MySpellsCard from "./MySpellsCard"
 import SpellBookManager from "../../modules/SpellBookManager"
 
 
+
 class MySpellsList extends Component {
 
     state = {
@@ -30,6 +31,16 @@ class MySpellsList extends Component {
         })
       }
 
+      editAddNotesButton = (obj, id) => {
+        return SpellBookManager.editMySpellToAddNote(obj, id).then(() => {
+          SpellBookManager.getAllMySpells().then(mySpells => {
+            this.setState({
+              mySpells: mySpells
+            });
+          });
+        });
+      };
+
 
     render() {
         console.log("SPELL LIST: Render");
@@ -42,6 +53,7 @@ class MySpellsList extends Component {
                             key={mySpell.id}
                             mySpell={mySpell}
                             deleteMySpell={this.deleteMySpell}
+                            editAddNotesButton={this.editAddNotesButton}
                             {...this.props}
                         />
                     ))}

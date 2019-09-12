@@ -2,13 +2,17 @@
 
 import React from 'react';
 import { Button, Modal, Input, Form, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import SpellBookManager from "../../modules/SpellBookManager"
 
 class AddMySpellsNotesModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             modal: false,
-            notes: ""
+            image: "",
+            notes: "",
+            userId: "",
+            spellId: ""
         };
 
         this.toggle = this.toggle.bind(this);
@@ -21,17 +25,34 @@ class AddMySpellsNotesModal extends React.Component {
         stateToChange[evt.target.id] = evt.target.value;
         this.setState(stateToChange);
     };
+    
+    updateExistingMySpell = evt => {
+      evt.preventDefault();
+      const editedMySpell = {
+        // creates edited task object with the values that we type in inputs
+        image: this.state.image,
+        notes: this.state.notes,
+        userId:  this.state.userId,
+        spellId:  this.state.spellId
+      };
+  
+      // invokes edit task function from task list, passes edited object and the id, and then closes modal
+      this.props
+        .editAddNotesButton(editedMySpell, this.props.mySpell.id)
+        .then(() => this.toggle());
+    };
+    
+    componentDidMount() {
+        SpellBookManager.getMySpell(this.props.mySpell.id).then(mySpell => {
+          this.setState({
+            image: mySpell.image,
+            notes: mySpell.notes,
+            userId: mySpell.userId,
+            spellId: mySpell.spellId
+          });
+        });
+      }
 
-    //need component did mount here I think
-    // componentDidMount() {
-    //     TaskManager.getTask(this.props.task.id).then(task => {
-    //       this.setState({
-    //         taskName: task.taskName,
-    //         taskDate: task.taskDate,
-    //         userId: task.userId
-    //       });
-    //     });
-    //   }
 
     toggle() {
         this.setState(prevState => ({
@@ -71,7 +92,7 @@ class AddMySpellsNotesModal extends React.Component {
           </ModalBody>
           <ModalFooter>
             {/* put buttons */}
-            <Button color="primary" onClick={this.updateExistingTask}> {/*what function goes here*/}
+            <Button color="primary" onClick={this.updateExistingMySpell}> 
               Submit Note
             </Button>
             <Button color="secondary" onClick={this.toggle}>
