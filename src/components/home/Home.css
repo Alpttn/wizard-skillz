@@ -1,3 +1,20 @@
 html body {
-    background-color: black
+    background-color: black;
+}
+
+.welcome__content {
+    display: flex;
+    justify-content: center;
+    margin: 10em;
+}
+
+.about__content {
+    display: flex;
+    justify-content: center;
+}
+
+.begin__button {
+    display: flex;
+    justify-content: center;
+    margin: 5em;
 }

@@ -5,10 +5,14 @@ class Home extends Component {
   render() {
     return (
       <div className="backgroundHome">
-        <div>
+        <div className="welcome__content">
           <h1>Welcome to Wizard Skillz</h1>
+        </div>
+        <div className="about__content">
           <h3>Become a master wizard in no time</h3>
-          <br />Begin
+        </div>
+        <div className="begin__button">
+          <h3>Begin</h3>
         </div>
       </div>
     )
