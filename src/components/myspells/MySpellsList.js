@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import MySpellsCard from "./MySpellsCard"
 import SpellBookManager from "../../modules/SpellBookManager"
 
+
 class MySpellsList extends Component {
 
     state = {
@@ -17,6 +18,19 @@ class MySpellsList extends Component {
         });
       }
 
+      deleteMySpell = id => {
+        SpellBookManager.deleteMySpell(id)
+        .then(() => {
+          SpellBookManager.getAllMySpells()
+          .then((newMySpells) => {
+            this.setState({
+                mySpells: newMySpells
+            })
+          })
+        })
+      }
+
+
     render() {
         console.log("SPELL LIST: Render");
 
@@ -27,6 +41,7 @@ class MySpellsList extends Component {
                         <MySpellsCard
                             key={mySpell.id}
                             mySpell={mySpell}
+                            deleteMySpell={this.deleteMySpell}
                             {...this.props}
                         />
                     ))}

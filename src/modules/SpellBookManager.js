@@ -27,6 +27,12 @@ export default {
             result.json()
         );
     },
+    deleteMySpell(id) {
+        return fetch(`${remoteURL}/mySpells/${id}`, {
+            method: "DELETE"
+        })
+        .then(result => result.json())
+      }
     
 
 
