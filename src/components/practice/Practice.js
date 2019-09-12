@@ -30,7 +30,7 @@ class Practice extends Component {
                 <div className="background">
                 <div>
                     <h2>Wands at the ready!<br />
-                        <small>Practice a spell and save it to the My Spells page!</small>
+                        <small>Click and drag mouse to trace image with your wand!</small>
                     </h2>
                 </div>
                 <div>
