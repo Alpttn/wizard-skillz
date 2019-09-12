@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import MySpellsCard from "./MySpellsCard"
 import SpellBookManager from "../../modules/SpellBookManager"
 
+
 class MySpellsList extends Component {
 
     state = {
