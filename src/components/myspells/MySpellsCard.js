@@ -14,18 +14,8 @@ class MySpellsCard extends Component {
                     {/* <p className="card__spellbook-description">Description: {this.props.spell.description}</p> */}
                     {/* <Link to={`/practice/${this.props.spell.id}`}><button>Practice</button></Link> */}
                     
-                    <button
-                        type="button"
-                        // onClick={() => this.props.deleteTask(this.props.task.id)}
-                    >
-                        Add Notes
-                    </button>
-                    <button
-                        type="button"
-                        // onClick={() => this.props.deleteTask(this.props.task.id)}
-                    >
-                        Delete This Spell
-                    </button>
+                    <button type="button" onClick={() => this.props.deleteTask(this.props.task.id)}> Add Notes </button> 
+                     <button type="button" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</button>
                 </div>
             </div>
         );

@@ -17,6 +17,19 @@ class MySpellsList extends Component {
         });
       }
 
+      deleteMySpell = id => {
+        SpellBookManager.deleteMySpell(id)
+        .then(() => {
+          SpellBookManager.getAllMySpells()
+          .then((newMySpells) => {
+            this.setState({
+                mySpells: newMySpells
+            })
+          })
+        })
+      }
+
+
     render() {
         console.log("SPELL LIST: Render");
 
@@ -27,6 +40,7 @@ class MySpellsList extends Component {
                         <MySpellsCard
                             key={mySpell.id}
                             mySpell={mySpell}
+                            deleteMySpell={this.deleteMySpell}
                             {...this.props}
                         />
                     ))}
