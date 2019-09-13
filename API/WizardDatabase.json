@@ -9,6 +9,16 @@
       "username": "harry@harry.com",
       "password": "1234",
       "id": 2
+    },
+    {
+      "username": "ron@ron.com",
+      "password": "ron",
+      "id": 3
+    },
+    {
+      "username": "hagrid@hagrid.com",
+      "password": "dragon",
+      "id": 4
     }
   ],
   "spells": [

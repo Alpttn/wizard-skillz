@@ -12,6 +12,13 @@ html body {
     display: flex;
     justify-content: center;
     margin: 5em;
+    margin-bottom: 2em;
+}
+
+.about__content--second{
+    display: flex;
+    justify-content: center;
+    margin: -2em;
 }
 
 .begin__button {
