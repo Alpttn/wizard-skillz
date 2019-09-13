@@ -25,7 +25,7 @@ class Login extends Component {
       userArray => {
         if (userArray.length > 0) {
           sessionStorage.setItem("activeUser", JSON.stringify(userArray[0].id));
-          this.props.history.push("/home"); //where are the props????????????????????
+          this.props.history.push("/"); //where are the props????????????????????
         } else {
           alert("Invalid username or password");
         }
