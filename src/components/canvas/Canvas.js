@@ -11,8 +11,8 @@ class Canvas extends Component {
         this.onMouseDown = this.onMouseDown.bind(this); //this represents the canvas. I'm not using arrow functions so I have to bind "this" to the component instance using the bind method. 
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
-        //do i need to bind the event here?
         this.createNewCanvasSpell = this.createNewCanvasSpell.bind(this);
+        this.clearCanvas = this.clearCanvas.bind(this);
     }
     // state = {
 
@@ -50,18 +50,18 @@ class Canvas extends Component {
         }
     }
     // onMouseMove = (nativeEvent) => {
-        // if (this.isPainting) {
-        //     const { offsetX, offsetY } = nativeEvent;
-        //     const offSetData = { offsetX, offsetY };
-        //     // Set the start and stop position of the paint event.
-        //     const positionData = {
-        //         start: { ...this.prevPos },
-        //         stop: { ...offSetData },
-        //     };
-        //     // Add the position to the line array
-        //     this.line = this.line.concat(positionData); //string the data together to keep track of where my mouse moves
-        //     this.paint(this.prevPos, offSetData, this.userStrokeStyle); //pass the arguments 
-        // }
+    // if (this.isPainting) {
+    //     const { offsetX, offsetY } = nativeEvent;
+    //     const offSetData = { offsetX, offsetY };
+    //     // Set the start and stop position of the paint event.
+    //     const positionData = {
+    //         start: { ...this.prevPos },
+    //         stop: { ...offSetData },
+    //     };
+    //     // Add the position to the line array
+    //     this.line = this.line.concat(positionData); //string the data together to keep track of where my mouse moves
+    //     this.paint(this.prevPos, offSetData, this.userStrokeStyle); //pass the arguments 
+    // }
     // }
 
     endPaintEvent() { //this event will change the is painting to false to stop tracking the mouse movement. 
@@ -71,9 +71,9 @@ class Canvas extends Component {
     }
 
     // endPaintEvent = () => {
-        // if (this.isPainting) {
-        //     this.isPainting = false;
-        // }
+    // if (this.isPainting) {
+    //     this.isPainting = false;
+    // }
     //}
 
     paint(prevPos, currPos, strokeStyle) {
@@ -92,18 +92,18 @@ class Canvas extends Component {
     }
 
     //  paint = (prevPos, currPos, strokeStyle) => {
-        // const { offsetX, offsetY } = currPos;
-        // const { offsetX: x, offsetY: y } = prevPos;
-        // // the following methods are specific to canvas!
-        // this.ctx.beginPath(); //ctx is the variable that refers to the getContext("2d") 
-        // this.ctx.strokeStyle = strokeStyle;
-        // // Move the the prevPosition of the mouse
-        // this.ctx.moveTo(x, y);
-        // // Draw a line to the current position of the mouse
-        // this.ctx.lineTo(offsetX, offsetY);
-        // // Visualize the line using the strokeStyle
-        // this.ctx.stroke();
-        // this.prevPos = { offsetX, offsetY };
+    // const { offsetX, offsetY } = currPos;
+    // const { offsetX: x, offsetY: y } = prevPos;
+    // // the following methods are specific to canvas!
+    // this.ctx.beginPath(); //ctx is the variable that refers to the getContext("2d") 
+    // this.ctx.strokeStyle = strokeStyle;
+    // // Move the the prevPosition of the mouse
+    // this.ctx.moveTo(x, y);
+    // // Draw a line to the current position of the mouse
+    // this.ctx.lineTo(offsetX, offsetY);
+    // // Visualize the line using the strokeStyle
+    // this.ctx.stroke();
+    // this.prevPos = { offsetX, offsetY };
     //}
 
     createNewCanvasSpell() {
@@ -121,16 +121,24 @@ class Canvas extends Component {
     }
 
     // createNewCanvasSpell = () => {
-        // const dataURL = this.canvas.toDataURL();
-        // console.log(dataURL);
-        // const mySpell = {
-        //     image: dataURL,
-        //     notes: ""
-        // };
-        // // Create the canvas spell and redirect user to MySpells page
-        // SpellBookManager.postCanvasSpell(mySpell)
-        //     .then(() => this.props.history.push("/mySpells"));
+    // const dataURL = this.canvas.toDataURL();
+    // console.log(dataURL);
+    // const mySpell = {
+    //     image: dataURL,
+    //     notes: ""
+    // };
+    // // Create the canvas spell and redirect user to MySpells page
+    // SpellBookManager.postCanvasSpell(mySpell)
+    //     .then(() => this.props.history.push("/mySpells"));
     //}
+
+    clearCanvas() {
+        this.ctx = this.canvas.getContext('2d');
+        const img = this.refs.image;
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.drawImage(img, 0, 0)
+        
+    }
 
     componentDidMount() {
         // Here we set up the properties of the canvas element when the component mounts.
@@ -141,7 +149,7 @@ class Canvas extends Component {
         this.ctx.lineCap = 'round';
         this.ctx.lineWidth = 10; //how wide the line is
         const img = this.refs.image
-        // new code to mess with. it enlarges but makes it blurry
+        // code I used when I had jpeg images. it enlarges but makes it blurry
         // const hRatio = this.canvas.width / img.width;
         // const vRatio = this.canvas.height / img.height;
         // const ratio = Math.min(hRatio, vRatio);
@@ -172,7 +180,7 @@ class Canvas extends Component {
                 />
                 <button
                     type="button"
-                // onClick={() => this.props.deleteTask(this.props.task.id)}
+                    onClick={this.clearCanvas}
                 >
                     Try Again
                     </button>
