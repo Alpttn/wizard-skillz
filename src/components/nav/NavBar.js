@@ -42,9 +42,6 @@ class NavBar extends Component {
                 <NavLink href="/spellbook">Spell Book</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/practice">Practice</NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="/myspells">My Spells</NavLink>
               </NavItem>
               <NavItem>

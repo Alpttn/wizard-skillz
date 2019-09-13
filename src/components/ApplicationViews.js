@@ -39,6 +39,7 @@ class ApplicationViews extends Component {
                 }
                 } />
 
+
                 <Route exact path="/spellbook" render={props => {
                     if (this.isAuthenticated()) {
                         return <SpellBookList activeUser={this.activeUser} {...props} />
