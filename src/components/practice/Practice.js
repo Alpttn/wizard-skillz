@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Canvas from '../canvas/Canvas';
 import SpellBookManager from '../../modules/SpellBookManager';
+import './Practice.css'
 
 class Practice extends Component {
 
@@ -26,9 +27,10 @@ class Practice extends Component {
         return (
 
             <React.Fragment>
+                <div className="background">
                 <div>
                     <h2>Wands at the ready!<br />
-                        <small>Practice a spell and save it to your spellbook!</small>
+                        <small>Click and drag mouse to trace image with your wand!</small>
                     </h2>
                 </div>
                 <div>
@@ -37,13 +39,6 @@ class Practice extends Component {
                         <h1>"...Loading"</h1>
                     }
                 </div>
-                <div>
-                    <button
-                        type="button"
-                    // onClick={() => this.props.deleteTask(this.props.task.id)}
-                    >
-                        Save to Favorites
-                    </button>
                 </div>
             </React.Fragment>
         );

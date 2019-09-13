@@ -57,7 +57,6 @@ class MySpellsList extends Component {
                             {...this.props}
                         />
                     ))}
-                    hello delete this
                 </div>
             </React.Fragment>
         )

@@ -1,0 +1,21 @@
+html body {
+    background-color: black;
+}
+
+.welcome__content {
+    display: flex;
+    justify-content: center;
+    margin: 6em;
+}
+
+.about__content {
+    display: flex;
+    justify-content: center;
+    margin: 5em;
+}
+
+.begin__button {
+    display: flex;
+    justify-content: center;
+    margin: 5em;
+}

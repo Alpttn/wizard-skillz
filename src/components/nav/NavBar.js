@@ -30,7 +30,7 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="dark" light expand="md">
           <NavbarBrand href="/">Wizard Skillz</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
