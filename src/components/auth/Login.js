@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Authentication from "../../modules/AuthenticationManager";
-// import Home from "./home/Home";
+
 
 //potato
 class Login extends Component {
@@ -25,7 +25,7 @@ class Login extends Component {
       userArray => {
         if (userArray.length > 0) {
           sessionStorage.setItem("activeUser", JSON.stringify(userArray[0].id));
-          this.props.history.push("/"); //where are the props????????????????????
+          this.props.history.push("/"); 
         } else {
           alert("Invalid username or password");
         }

@@ -47,6 +47,9 @@ class NavBar extends Component {
               <NavItem>
                 <NavLink href="/myspells">My Spells</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/logout">Logout</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
