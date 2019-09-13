@@ -1,0 +1,26 @@
+.container__spellbook-cards {
+    height: 500px;
+    width: auto;
+}
+
+.carousel {
+    height: 100%;
+    
+}
+
+.carousel__item {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+.carousel-inner img {
+    margin-left: 30%;
+    height: 65%;
+}
+.practiceButton {
+    position: absolute;
+    top: 70%;
+    left: 46%;
+}

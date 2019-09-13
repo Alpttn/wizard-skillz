@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import './SpellBookCarousel.css'
 
 import {
     Carousel,
@@ -51,19 +52,21 @@ class SpellBookCarousel extends Component {
 
         const slides = this.props.spells.map((spell) => {
             return (
-                <CarouselItem
+                <CarouselItem className="carousel__item"
                     onExiting={this.onExiting}
                     onExited={this.onExited}
                     key={spell.id}
                 >
-                    <img src={require(`../images/${spell.image}`)} alt='Spell Image' />
+                    <div className="carousel-inner"><img src={require(`../images/${spell.image}`)} alt='Spell Image' />
+                        <Link to={`/practice/${spell.id}`}><button className="practiceButton">Practice</button></Link>
+                    </div>
                     <CarouselCaption captionText={spell.description} captionHeader={spell.spellName} />
                 </CarouselItem>
             );
         });
 
         return (
-            <Carousel
+            <Carousel className="carousel"
                 activeIndex={activeIndex}
                 next={this.next}
                 previous={this.previous}
