@@ -41,7 +41,7 @@ class Register extends Component {
             // invoke postNewUser fetch (POST method),
             // pass newUserObj as argument. a userObj is returned
             sessionStorage.setItem("activeUser", JSON.stringify(userObj.id)); // stores new user id to session storage (mimics login)
-            this.props.history.push("/home"); // re directs user to /home with succesful registration
+            this.props.history.push("/"); // re directs user to /home with succesful registration
           });
         }
       });
