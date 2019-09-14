@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import './NavBar.css'
 
 // import './NavBar.css'
 
-// react strap code
+// reactstrap code
 import {
   Collapse,
   Navbar,
@@ -31,21 +32,21 @@ class NavBar extends Component {
     return (
       <div>
         <Navbar color="dark" light expand="md">
-          <NavbarBrand href="/">Wizard Skillz</NavbarBrand>
+          <NavbarBrand style={{color: 'yellow'}} href="/">Wizard Skillz</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink style={{color: 'yellow'}} className="navLink" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/spellbook">Spell Book</NavLink>
+                <NavLink style={{color: 'white'}} href="/spellbook">Spell Book</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/myspells">My Spells</NavLink>
+                <NavLink style={{color: 'white'}} href="/myspells">My Spells</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/logout">Logout</NavLink>
+                <NavLink style={{color: 'white'}} href="/logout">Logout</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
