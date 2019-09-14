@@ -1,7 +1,7 @@
 import React, { Component } from "react"
-// what components do I need? In this list component I need to render the cards and fetch the data
-import SpellBookCard from "./SpellBookCard"
+// import SpellBookCard from "./SpellBookCard"
 import SpellBookManager from "../../modules/SpellBookManager"
+import SpellBookCarousel from "./SpellBookCarousel";
 
 class SpellBookList extends Component {
 
@@ -11,11 +11,11 @@ class SpellBookList extends Component {
 
     componentDidMount() {
         SpellBookManager.getAllSpells().then(spells => {
-          this.setState({
-            spells: spells
-          });
+            this.setState({
+                spells: spells
+            });
         });
-      }
+    }
 
     render() {
         console.log("SPELL LIST: Render");
@@ -23,13 +23,11 @@ class SpellBookList extends Component {
         return (
             <React.Fragment>
                 <div className="container__spellbook-cards">
-                    {this.state.spells.map(spell => (
-                        <SpellBookCard
-                            key={spell.id}
-                            spell={spell}
-                            {...this.props}
-                        />
-                    ))}
+
+                    <SpellBookCarousel
+                        spells={this.state.spells}
+                        {...this.props}
+                    />
                 </div>
             </React.Fragment>
         )
