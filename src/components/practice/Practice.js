@@ -38,12 +38,6 @@ class Practice extends Component {
                     }
                 </div>
                 <div>
-                    {/* <button
-                        type="button"
-                    // onClick={() => this.props.deleteTask(this.props.task.id)}
-                    >
-                        Save to Favorites
-                    </button> */}
                 </div>
             </React.Fragment>
         );

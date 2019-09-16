@@ -6,6 +6,7 @@ html body {
     display: flex;
     justify-content: center;
     margin: 6em;
+    color: white;
 }
 
 .about__content {
@@ -13,12 +14,14 @@ html body {
     justify-content: center;
     margin: 5em;
     margin-bottom: 2em;
+    color: white;
 }
 
 .about__content--second{
     display: flex;
     justify-content: center;
     margin: -2em;
+    color: white;
 }
 
 .begin__button {
