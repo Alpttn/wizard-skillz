@@ -13,7 +13,7 @@ class MySpellsCard extends Component {
                         <picture>
                             <img className="drawn__image" src={`${this.props.mySpell.image}`} alt="spell" />
                         </picture>
-                        <h3>Notes: <span className="card__mySpell-name">{this.props.mySpell.notes}</span></h3>
+                        <h3 style={{color: 'yellow'}}>Notes: <span style={{color: 'white'}} className="card__mySpell-name">{this.props.mySpell.notes}</span></h3>
                         {/* <p className="card__spellbook-description">Description: {this.props.spell.description}</p> */}
                         <section className="add__notes--modal__container">
                             <AddMySpellsNotesModal 
