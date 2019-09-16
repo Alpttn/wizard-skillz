@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddMySpellsNotesModal from "./AddMySpellsNotesModal";
 import { Button, Modal, Input, Form, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import CompareMySpellsModal from './CompareMySpellsModal';
 // import { Link } from "react-router-dom";
 
 
@@ -14,7 +15,6 @@ class MySpellsCard extends Component {
                             <img className="drawn__image" src={`${this.props.mySpell.image}`} alt="spell" />
                         </picture>
                         <h3 style={{color: 'yellow'}}>Notes: <span style={{color: 'white'}} className="card__mySpell-name">{this.props.mySpell.notes}</span></h3>
-                        {/* <p className="card__spellbook-description">Description: {this.props.spell.description}</p> */}
                         <section className="add__notes--modal__container">
                             <AddMySpellsNotesModal 
                             // key={mySpell.id}
@@ -23,7 +23,18 @@ class MySpellsCard extends Component {
                             editAddNotesButton={this.editAddNotesButton}
                             {...this.props} />
                         </section>
-                        <Button color="warning" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</Button>
+                        <section className="compare__modal--container"> 
+                            <CompareMySpellsModal
+                            // key={mySpell.id}
+                            // mySpell={mySpell}
+                            {...this.props} />
+                        </section>
+                        <div>
+                            <Button color="warning" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</Button>
+                        </div>
+                        <div id="yourResultContainerId">
+                            <p>API results should return here</p>
+                        </div>
                     </div>
                 </div>
             </React.Fragment>

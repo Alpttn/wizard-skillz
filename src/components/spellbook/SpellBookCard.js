@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './SpellBookCard.css'
 
+// NOT IN USE due to carousel component
+
 class SpellBookCard extends Component {
     render() {
         return (
