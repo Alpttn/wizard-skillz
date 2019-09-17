@@ -47,6 +47,15 @@ export default {
             result.json()
         );
     },
+    editNote(editedNoteObj, editedNoteId) {
+        return fetch(`${remoteURL}/mySpells/${editedNoteId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(editedNoteObj)
+        }).then(data => data.json());
+      }
 
 
 };
