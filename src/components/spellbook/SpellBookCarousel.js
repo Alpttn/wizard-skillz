@@ -61,7 +61,7 @@ class SpellBookCarousel extends Component {
                     <div className="carousel-inner"><img src={require(`../images/${spell.image}`)} alt='Spell' />
                         <Link to={`/practice/${spell.id}`}><Button color="primary" className="practiceButton">Practice</Button></Link>
                     </div>
-                    <CarouselCaption captionText={spell.description} captionHeader={spell.spellName} />
+                    <CarouselCaption className="title-description" captionText={spell.description} captionHeader={spell.spellName} />
                 </CarouselItem>
             );
         });

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Canvas from '../canvas/Canvas';
 import SpellBookManager from '../../modules/SpellBookManager';
+import './Practice.css'
 
 class Practice extends Component {
 
@@ -26,12 +27,12 @@ class Practice extends Component {
         return (
 
             <React.Fragment>
-                <div>
-                    <h2>Wands at the ready!<br />
-                        <small>Practice a spell and save it to your spell collection!</small>
-                    </h2>
+                <div className="heading__directions--conatiner">
+                    <h1 className="heading">Wands at the ready!<br />
+                    </h1>
+                        <p className="directions">Click and drag mouse to trace the spell!</p>
                 </div>
-                <div>
+                <div className="canvas__container">
                     {this.state.spell.hasOwnProperty('image') ?
                         <Canvas spell={this.state.spell} {...this.props} /> :
                         <h1>"...Loading"</h1>

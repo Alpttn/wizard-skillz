@@ -1,6 +1,7 @@
 // canvas.js
 
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 import './Canvas.css'
 import SpellBookManager from '../../modules/SpellBookManager';
 
@@ -168,7 +169,7 @@ class Canvas extends Component {
     render() {
         console.log(this.props.spell)
         return (
-            <div>
+            <div className="canvas__button--container">
                 <canvas
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
@@ -178,18 +179,10 @@ class Canvas extends Component {
                     onMouseUp={this.endPaintEvent}
                     onMouseMove={this.onMouseMove}
                 />
-                <button
-                    type="button"
-                    onClick={this.clearCanvas}
-                >
-                    Try Again
-                    </button>
-                <button
-                    type="button"
-                    onClick={this.createNewCanvasSpell}
-                >
-                    Save Image to favorites
-                    </button>
+                <div>
+                    <Button className="tryAgain__button" color="primary" onClick={this.clearCanvas}>Try Again</Button>
+                    <Button className="saveImage__button" color="primary" onClick={this.createNewCanvasSpell}>Save Image to favorites</Button>
+                    </div>
                 <picture>
                     <img ref="image" src={require(`../images/${this.props.spell.image}`)} className="hidden" alt={this.props.spell.spellName} />
                 </picture>

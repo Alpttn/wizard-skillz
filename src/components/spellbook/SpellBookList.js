@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // import SpellBookCard from "./SpellBookCard"
 import SpellBookManager from "../../modules/SpellBookManager"
 import SpellBookCarousel from "./SpellBookCarousel";
+import './SpellBookList.css'
 
 class SpellBookList extends Component {
 
