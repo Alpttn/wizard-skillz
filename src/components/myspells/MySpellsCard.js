@@ -32,9 +32,6 @@ class MySpellsCard extends Component {
                         <div>
                             <Button color="warning" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</Button>
                         </div>
-                        <div id="yourResultContainerId">
-                            <p>API results should return here</p>
-                        </div>
                     </div>
                 </div>
             </React.Fragment>

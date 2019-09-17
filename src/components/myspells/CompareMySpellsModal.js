@@ -4,6 +4,7 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 const Deepai = require("deepai")
 
+
 class CompareMySpellsModal extends React.Component {
     constructor(props) {
         super(props);
@@ -21,16 +22,15 @@ class CompareMySpellsModal extends React.Component {
     }
 
     //   Here is where I am messing around with the Deepai external API image comparison
-
     // an async function returns a promise. the values are wrapped in a resolved promise
-    test = async () => {
-        Deepai.setApiKey("quickstart-QUdJIGlzIGNvbWluZy4uLi4K");
-        const resp = await Deepai.callStandardApi("image-similarity", {
-            image1: "YOUR_IMAGE_URL", // this.state.mySpell.image ???
-            image2: "YOUR_IMAGE_URL", //  image2: fs.createReadStream("/images/.jpg"),
-        });
-        console.log(resp);
-    };
+    // test = async () => {
+    //     Deepai.setApiKey("quickstart-QUdJIGlzIGNvbWluZy4uLi4K");
+    //     const resp = await Deepai.callStandardApi("image-similarity", {
+    //         image1: `${this.props.mySpell.image}`, // this.state.mySpell.image ???
+    //         image2: fs.createReadStream("../images/lumos.svg"), //  image2: fs.createReadStream("/images/.jpg"),
+    //     });
+    //     console.log(resp);
+    // };
 
 
 
