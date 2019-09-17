@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // what components do I need? In this list component I need to render the cards and fetch the data
 import MySpellsCard from "./MySpellsCard"
 import SpellBookManager from "../../modules/SpellBookManager"
+import CompareMySpellsModal from "./CompareMySpellsModal"
 
 
 
