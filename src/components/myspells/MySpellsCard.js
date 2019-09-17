@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddMySpellsNotesModal from "./AddMySpellsNotesModal";
+import EditMySpellNotes from "./EditMySpellNotes";
 import { Button, Modal, Input, Form, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 // import { Link } from "react-router-dom";
 
@@ -21,6 +22,13 @@ class MySpellsCard extends Component {
                             // mySpell={mySpell}
                             deleteMySpell={this.deleteMySpell}
                             editAddNotesButton={this.editAddNotesButton}
+                            {...this.props} />
+                        </section>
+                        <section className="add__notes--modal__container">
+                            <EditMySpellNotes 
+                            // key={mySpell.id}
+                            // mySpell={mySpell}
+                            editMySpellNote={this.editMySpellNote}
                             {...this.props} />
                         </section>
                         <Button color="warning" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</Button>

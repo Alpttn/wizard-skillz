@@ -41,6 +41,16 @@ class MySpellsList extends Component {
         });
       };
 
+      // add function to edit notes here
+      editMySpellNote = (obj, id) => {
+        return SpellBookManager.editNote(obj, id).then(() => {
+          SpellBookManager.getAllMySpells().then(mySpells => {
+            this.setState({
+              mySpells: mySpells
+            });
+          });
+        });
+      };
 
     render() {
         console.log("SPELL LIST: Render");
@@ -54,6 +64,7 @@ class MySpellsList extends Component {
                             mySpell={mySpell}
                             deleteMySpell={this.deleteMySpell}
                             editAddNotesButton={this.editAddNotesButton}
+                            editMySpellNote={this.editMySpellNote}
                             {...this.props}
                         />
                     ))}
