@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { Button, Modal, Input, Form, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 import './SpellBookCarousel.css'
 
 import {
@@ -58,8 +58,8 @@ class SpellBookCarousel extends Component {
                     onExited={this.onExited}
                     key={spell.id}
                 >
-                    <div className="carousel-inner"><img src={require(`../images/${spell.image}`)} alt='Spell Image' />
-                        <Link to={`/practice/${spell.id}`}><Button color="warning" className="practiceButton">Practice</Button></Link>
+                    <div className="carousel-inner"><img src={require(`../images/${spell.image}`)} alt='Spell' />
+                        <Link to={`/practice/${spell.id}`}><Button color="primary" className="practiceButton">Practice</Button></Link>
                     </div>
                     <CarouselCaption captionText={spell.description} captionHeader={spell.spellName} />
                 </CarouselItem>

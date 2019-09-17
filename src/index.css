@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h1 {
+  font-family: 'Cinzel Decorative', serif;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  font-family: 'Raleway', sans-serif;
+}
