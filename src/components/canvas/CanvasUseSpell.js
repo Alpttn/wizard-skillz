@@ -261,7 +261,7 @@ class Canvas extends Component {
         console.log(this.props.position)
         return (
             <div className="canvas__useSpell--container">
-                <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p>
+                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p> */}
                 <canvas
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}

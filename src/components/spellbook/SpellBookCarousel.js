@@ -48,6 +48,7 @@ class SpellBookCarousel extends Component {
         if (this.animating) return;
         this.setState({ activeIndex: newIndex });
     }
+    
     render() {
         const { activeIndex } = this.state;
 

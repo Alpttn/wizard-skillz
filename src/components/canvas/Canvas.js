@@ -19,7 +19,7 @@ class Canvas extends Component {
 
     // };
 
-    isPainting = false; //we set painting to false first
+    isPainting = false; //I set painting to false first
     // userStrokeStyle is the color of the paint
     userStrokeStyle = '#D3D3D3';
     line = [];
@@ -109,7 +109,7 @@ class Canvas extends Component {
 
     createNewCanvasSpell() {
         const dataURL = this.canvas.toDataURL();
-        console.log(dataURL);
+        console.log(dataURL); //long URL (64)
         const mySpell = {
             image: dataURL,
             notes: "",
@@ -165,7 +165,7 @@ class Canvas extends Component {
             this.ctx.drawImage(img, 0, 0)
         }
     }
-
+//use require below to load and cache the image. we get the spell object from props and use .notation to get img
     render() {
         console.log(this.props.spell)
         return (

@@ -10,6 +10,7 @@ class SpellBookList extends Component {
         spells: [],
     };
 
+    //after the first render I call all my spells and set state to fill the empty array
     componentDidMount() {
         SpellBookManager.getAllSpells().then(spells => {
             this.setState({
@@ -19,12 +20,10 @@ class SpellBookList extends Component {
     }
 
     render() {
-        console.log("SPELL LIST: Render");
 
         return (
             <React.Fragment>
                 <div className="container__spellbook-cards">
-
                     <SpellBookCarousel
                         spells={this.state.spells}
                         {...this.props}

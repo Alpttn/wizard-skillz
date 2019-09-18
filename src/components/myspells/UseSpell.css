@@ -1,0 +1,12 @@
+.canvas__container {
+    display: flex;
+    flex-direction: row;
+}
+
+.canvas__cursor{
+    width: 50%;
+}
+
+.canvas__useSpell {
+    width: 50%;
+}

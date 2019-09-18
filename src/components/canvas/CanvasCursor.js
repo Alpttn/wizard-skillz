@@ -112,8 +112,8 @@ class CanvasCursor extends React.Component {
   }
 
   render = () => {
-    const { cHeight, cWidth } = this.state;
-    return <canvas ref={this.canvas} width="800" height="450" />;
+    // const { cHeight, cWidth } = this.state;
+    return <canvas ref={this.canvas} width="400" height="450" />;
   }
 }
 
