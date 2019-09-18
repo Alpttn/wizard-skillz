@@ -7,6 +7,7 @@ import Practice from './practice/Practice'
 import SpellBookList from './spellbook/SpellBookList'
 import MySpellsList from './myspells/MySpellsList'
 import Logout from './auth/Logout'
+import UseSpell from './myspells/UseSpell';
 
 
 class ApplicationViews extends Component {
@@ -57,6 +58,13 @@ class ApplicationViews extends Component {
                 <Route exact path="/logout" render={props => {
                     if (this.isAuthenticated()) {
                         return <Logout activeUser={this.activeUser} {...props} />
+                    }
+                }
+                } />
+
+                <Route exact path="/usespell" render={props => {
+                    if (this.isAuthenticated()) {
+                        return <UseSpell activeUser={this.activeUser} {...props} />
                     }
                 }
                 } />

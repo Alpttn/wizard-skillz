@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import AddMySpellsNotesModal from "./AddMySpellsNotesModal";
 import EditMySpellNotes from "./EditMySpellNotes";
 import { Button } from 'reactstrap';
@@ -32,6 +33,9 @@ class MySpellsCard extends Component {
                             {...this.props} />
                         </section>
                         <Button color="primary" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</Button>
+                    <div>
+                    <Link to={`/usespell`}><Button color="primary">Use this spell</Button></Link>
+                    </div>
                     </div>
                 </div>
             </React.Fragment>
