@@ -1,20 +1,34 @@
-html body {
-    background-color: black;
+
+body {
+    background: url(https://www.redwallpapers.com/public/redwallpapers-large-thumb/smoke-shroud-dark-blue-black-free-stock-photo-image-wallpaper.jpg) no-repeat 50% 50%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background-size: cover;
+    top: 0;
 }
 
 .welcome__content {
     display: flex;
     justify-content: center;
-    margin: 6em;
+    margin-top: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
     color: white;
+    font-family: 'Cinzel Decorative', serif;
+    /* font-family: 'Raleway', sans-serif; */
 }
 
 .about__content {
     display: flex;
     justify-content: center;
-    margin: 5em;
+    margin: 2em;
     margin-bottom: 2em;
     color: white;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
 }
 
 .about__content--second{
@@ -22,10 +36,13 @@ html body {
     justify-content: center;
     margin: -2em;
     color: white;
+    font-family: 'Raleway', sans-serif;
 }
 
 .begin__button {
     display: flex;
     justify-content: center;
     margin: 5em;
+    font-family: 'Raleway', sans-serif;
+    color: cyan;
 }

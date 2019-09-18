@@ -31,13 +31,13 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" light expand="md">
-          <NavbarBrand style={{color: 'yellow'}} href="/">Wizard Skillz</NavbarBrand>
+        <Navbar color="black" light expand="md">
+          <NavbarBrand style={{color: '#A3CEF9'}} href="/">Wizard Skillz</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink style={{color: 'yellow'}} className="navLink" href="/">Home</NavLink>
+                <NavLink style={{color: '#A3CEF9'}} className="navLink" href="/">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink style={{color: 'white'}} href="/spellbook">Spell Book</NavLink>

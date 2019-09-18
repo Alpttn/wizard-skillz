@@ -1,7 +1,5 @@
-/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
-
 import React from 'react';
-import { Button, Modal, Input, Form, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, Input, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import SpellBookManager from "../../modules/SpellBookManager"
 
 class EditMySpellNotes extends React.Component {
@@ -59,7 +57,7 @@ class EditMySpellNotes extends React.Component {
     render() {
         return (
             <div>
-                <Button color="warning" onClick={this.toggle}>Edit Spell Notes</Button>
+                <Button color="primary" onClick={this.toggle}>Edit Spell Notes</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle} charCode="Y">Modal title</ModalHeader>
                     <ModalBody>

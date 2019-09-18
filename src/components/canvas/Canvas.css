@@ -3,3 +3,12 @@
     max-height: 500px;
     display: none;
 }
+
+.saveImage__button {
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+background {
+    background: none
+}
