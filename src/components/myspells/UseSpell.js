@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactCursorPosition from 'react-cursor-position';
 import SpellBookManager from "../../modules/SpellBookManager";
 import CanvasUseSpell from "../canvas/CanvasUseSpell";
+import CanvasCursor from "../canvas/CanvasCursor";
 
 
 
@@ -34,6 +35,7 @@ class UseSpell extends Component {
                 </div>
                 <div className="canvas__container">
                     <ReactCursorPosition>
+                        <CanvasCursor />
                         <CanvasUseSpell spell={this.state.spell} {...this.props} />
                     </ReactCursorPosition>
                 </div>
