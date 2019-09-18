@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 import SpellBookManager from '../../modules/SpellBookManager';
 import './CanvasUseSpell.css'
 
@@ -152,9 +151,11 @@ class Canvas extends Component {
     }
 
     render() {
-        console.log(this.props.spell)
+        // console.log(this.props.spell)
+        console.log(this.props.position)
         return (
             <div className="canvas__button--container">
+                <p>x={this.props.position.x}, y={this.props.position.y}</p>
                 <canvas
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
