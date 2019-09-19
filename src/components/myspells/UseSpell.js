@@ -25,7 +25,6 @@ class UseSpell extends Component {
 
 
     render() {
-        console.log("SPELL LIST: Render");
 
         return (
             <React.Fragment>

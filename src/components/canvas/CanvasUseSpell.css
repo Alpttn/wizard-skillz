@@ -1,6 +1,11 @@
-.canvas__useSpell--container {
-    border: lightblue solid;
-}
+/* .canvas__useSpell--container {
+    border: purple solid;
+    /* margin: 15%; */
+    /* top: 0;
+    left: 0;
+    position: absolute; */
+    
+/* }  */
 
 .color__coordinates {
     color: lightblue;

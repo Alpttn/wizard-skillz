@@ -1,19 +1,42 @@
 /* .canvas__container {
-    /* display: flex;
-    flex-direction: row;
+    
+}  */
+
+/* .canvas__cursor{
+    /* width: 100%; */
+    /* top: 15;
+    left: 0;
+    position: absolute;
+    border: 3px solid pink; */
+    /* margin: 20%; */
+/* }  */
+
+/* .canvas__useSpell {
+    width: 50%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border: 3px solid #73AD21;
 } */
 
-.canvas__cursor{
-    /* width: 50%; */
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 3px solid #73AD21;
+.canvas__container {
+    position: static;
+    
 }
 
-.canvas__useSpell {
-    /* width: 50%; */
+
+.canvasUseSpell {
+    top: 10;
+    left: 20em;
     position: absolute;
-    top: 0;
-    left: 0;
+    border: 3px solid #73AD21; 
 }
+
+.canvasCursor{
+    top: 10;
+    left: 20em;
+    position: absolute;
+    border: 3px solid lightblue; 
+}
+
+
