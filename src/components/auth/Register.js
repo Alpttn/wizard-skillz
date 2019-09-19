@@ -53,7 +53,7 @@ class Register extends Component {
       <form onSubmit={this.handleRegister}>
         <fieldset>
           <h3>Please Register</h3>
-          <div className="nutshellForms">
+          <div className="RegisterForms">
             <input
               onChange={this.handleFieldChange}
               type="email"

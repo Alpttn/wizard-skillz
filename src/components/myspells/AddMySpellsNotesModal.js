@@ -29,14 +29,14 @@ class AddMySpellsNotesModal extends React.Component {
     updateExistingMySpell = evt => {
       evt.preventDefault();
       const editedMySpell = {
-        // creates edited task object with the values that we type in inputs
+        // creates notes object with the values that I type in inputs
         image: this.state.image,
         notes: this.state.notes,
         userId:  this.state.userId,
         spellId:  this.state.spellId
       };
   
-      // invokes edit task function from task list, passes edited object and the id, and then closes modal
+      // invokes edit spell function from spelllist, passes edited object and the id, and then closes modal
       this.props
         .editAddNotesButton(editedMySpell, this.props.mySpell.id)
         .then(() => this.toggle());
@@ -52,7 +52,6 @@ class AddMySpellsNotesModal extends React.Component {
           });
         });
       }
-
 
     toggle() {
         this.setState(prevState => ({
@@ -83,12 +82,6 @@ class AddMySpellsNotesModal extends React.Component {
           <Input type="textarea" name="text" id="notes" onChange={this.handleFieldChange}
               value={this.state.notes} />
         </FormGroup>
-            {/* <Input
-              id="notes"
-              type="textarea"
-              onChange={this.handleFieldChange}
-              value={this.state.notes}
-            /> */}
           </ModalBody>
           <ModalFooter>
             {/* put buttons */}

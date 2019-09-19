@@ -17,7 +17,7 @@ class Login extends Component {
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
   };
-
+//check to see if there is a user, then iterates over the array. If there is a user set that user in session storage
   handleLogin = e => {
     e.preventDefault();
     console.log(Authentication);

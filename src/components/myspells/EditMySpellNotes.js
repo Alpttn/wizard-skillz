@@ -26,7 +26,7 @@ class EditMySpellNotes extends React.Component {
     updateExistingNote = evt => {
         evt.preventDefault();
         const editedNote = {
-            // creates edited task object with the values that we type in inputs
+            // creates edited spell object with the values that I type in inputs
             image: this.state.image,
             notes: this.state.notes,
             userId: this.state.userId,
@@ -37,8 +37,8 @@ class EditMySpellNotes extends React.Component {
             .then(() => this.toggle());
     };
 
-    componentDidMount() {
-        SpellBookManager.getMySpell(this.props.mySpell.id).then(mySpell => {
+    getMySpell = () => {
+        return SpellBookManager.getMySpell(this.props.mySpell.id).then(mySpell => {
             this.setState({
                 image: mySpell.image,
                 notes: mySpell.notes,
@@ -46,6 +46,17 @@ class EditMySpellNotes extends React.Component {
                 spellId: mySpell.spellId
             });
         });
+    }
+
+    componentDidMount() {
+        this.getMySpell()
+    }
+
+    // look for props and if they are different then update state
+    componentDidUpdate(preProps, prevState) {
+        if (preProps.mySpell !== this.props.mySpell) {
+            this.getMySpell()
+        }
     }
 
     toggle() {

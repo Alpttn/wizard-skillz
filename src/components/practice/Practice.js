@@ -8,22 +8,20 @@ class Practice extends Component {
     state = {
         spell: {}
     };
-
+//the route props return history, match, and location. 
     componentDidMount() {
         const spellId = parseInt(this.props.match.params.spellId) //key is spellId and value is the actual id in the url
 
+        //I want to get one spell from the spellbook.
         SpellBookManager.getSpell(spellId).then((spell) => {
             this.setState({
                 spell: spell
             })
         })
     };
-
-    // function to clear the canvas
-    // ctx.clearRect(0, 0, canvas.width, canvas.height);    I need to clear the canvas but the button is on this page
-
+// has ownproptery-it was rendering the canvas before the image so I slowed it down with the has own property. It says, hey do I have a property of image? if so render the canvas, otherwise show loading
     render() {
-        console.log(this.state.spell)
+        console.log(this.state.spell) //did state grab the correct spell object?
         return (
 
             <React.Fragment>
@@ -33,12 +31,10 @@ class Practice extends Component {
                         <p className="directions">Click and drag mouse to trace the spell!</p>
                 </div>
                 <div className="canvas__container">
-                    {this.state.spell.hasOwnProperty('image') ?
+                    {this.state.spell.hasOwnProperty('image') ? 
                         <Canvas spell={this.state.spell} {...this.props} /> :
                         <h1>"...Loading"</h1>
                     }
-                </div>
-                <div>
                 </div>
             </React.Fragment>
         );

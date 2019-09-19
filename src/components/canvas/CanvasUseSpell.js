@@ -1,9 +1,139 @@
-// canvas.js
+// import React from 'react';
+
+// /* Mouse trail adapted from a jQuery Codepen by Bryan C https://codepen.io/bryjch/pen/QEoXwA */
+
+// class Point {
+//   constructor(x, y) {
+//     this.x = x;
+//     this.y = y;
+//     this.lifetime = 0;
+//   }
+// }
+
+// class CanvasUseSpell extends React.Component {
+//   state = {
+//     cHeight: 0,
+//     cWidth: 0,
+//   };
+
+//   canvas = React.createRef();
+
+//   componentDidMount = () => {
+//     // Set height and width on load because if set in state body isn't defined yet.
+//     this.setState({
+//       cHeight: document.body.clientHeight,
+//       cWidth: document.body.clientWidth,
+//     });
+//     // where I want to draw the shapes
+//     const canvas = this.canvas.current;
+//     const ctx = canvas.getContext('2d');
+//     ctx.fillRect(195, 50, 10, 10);
+//     const squareTwo =ctx.fillRect(50, 300, 10, 10);
+//     const squareThree =ctx.fillRect(340, 300, 10, 10);
+
+//     // window.addEventListener(
+//     //   'resize',
+//     //   () => {
+//     //     this.setState({
+//     //       cHeight: document.body.clientHeight,
+//     //       cWidth: document.body.clientWidth,
+//     //     });
+//     //   },
+//     //   false,
+//     // );
+
+//     // If the device supports cursors, start animation.
+//     if (matchMedia('(pointer:fine)').matches) {
+//       this.startAnimation();
+//     };
+//   }
+
+//   startAnimation = () => {
+//     const canvas = this.canvas.current;
+//     const ctx = canvas.getContext('2d');
+
+//     const points = [];
+
+//     const addPoint = (x, y) => {
+//       const point = new Point(x, y);
+//       points.push(point);
+//     };
+
+//     document.addEventListener('mousemove', ({ clientX, clientY }) => {
+//       addPoint(clientX - canvas.offsetLeft, clientY - canvas.offsetTop);
+//     }, false);
+
+//     const animatePoints = () => {
+//       ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+//       const duration = 0.7 * (1 * 1000) / 60; // Last 80% of a frame per point
+
+//       for (let i = 0; i < points.length; ++i) {
+//         const point = points[i];
+//         let lastPoint;
+
+//         if (points[i - 1] !== undefined) {
+//           lastPoint = points[i - 1];
+//         } else lastPoint = point;
+
+//         point.lifetime += 1;
+
+//         if (point.lifetime > duration) {
+//           // If the point dies, remove it.
+//           points.shift();
+//         } else {
+//           // Otherwise animate it:
+
+//           // As the lifetime goes on, lifePercent goes from 0 to 1.
+//           const lifePercent = (point.lifetime / duration);
+//           const spreadRate = 7 * (1 - lifePercent);
+
+//           ctx.lineJoin = 'round';
+//           ctx.lineWidth = spreadRate;
+
+//           // As time increases decrease r and b, increase g to go from purple to green.
+//           const red = Math.floor(190 - (190 * lifePercent));
+//           const green = 0;
+//           const blue = Math.floor(210 + (210 * lifePercent));
+//           ctx.strokeStyle = `rgb(${red},${green},${blue}`;
+
+//           ctx.beginPath();
+
+//           ctx.moveTo(lastPoint.x, lastPoint.y);
+//           ctx.lineTo(point.x, point.y);
+
+//           ctx.stroke();
+//           ctx.closePath();
+//         }
+//       }
+//       requestAnimationFrame(animatePoints);
+//     };
+
+//     animatePoints();
+//   }
+
+//   render = () => {
+//     const { cHeight, cWidth } = this.state;
+//     return <canvas ref={this.canvas} width="800" height="450" />;
+//   }
+// }
+
+// export default CanvasUseSpell;
+
+
+
+
+
+
+
+
+
+
+
 
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
-import './Canvas.css'
 import SpellBookManager from '../../modules/SpellBookManager';
+import './CanvasUseSpell.css'
+
 
 
 class Canvas extends Component {
@@ -12,14 +142,13 @@ class Canvas extends Component {
         this.onMouseDown = this.onMouseDown.bind(this); //this represents the canvas. I'm not using arrow functions so I have to bind "this" to the component instance using the bind method. 
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
-        this.createNewCanvasSpell = this.createNewCanvasSpell.bind(this);
         this.clearCanvas = this.clearCanvas.bind(this);
     }
     // state = {
 
     // };
 
-    isPainting = false; //I set painting to false first
+    isPainting = false; //we set painting to false first
     // userStrokeStyle is the color of the paint
     userStrokeStyle = '#D3D3D3';
     line = [];
@@ -107,72 +236,32 @@ class Canvas extends Component {
     // this.prevPos = { offsetX, offsetY };
     //}
 
-    createNewCanvasSpell() {
-        const dataURL = this.canvas.toDataURL();
-        console.log(dataURL); //64 bit encoded PNG URL
-        const mySpell = {
-            image: dataURL,
-            notes: "",
-            spellId: this.props.spell.id,
-            UserId: this.props.activeUser(), //this was passed down from application views
-        };
-        // Create the canvas spell, save to json, and redirect user to MySpells page
-        SpellBookManager.postCanvasSpell(mySpell) 
-            .then(() => this.props.history.push("/mySpells"));
-    }
 
-    // createNewCanvasSpell = () => {
-    // const dataURL = this.canvas.toDataURL();
-    // console.log(dataURL);
-    // const mySpell = {
-    //     image: dataURL,
-    //     notes: ""
-    // };
-    // // Create the canvas spell and redirect user to MySpells page
-    // SpellBookManager.postCanvasSpell(mySpell)
-    //     .then(() => this.props.history.push("/mySpells"));
-    //}
-
-    //made a function that uses method from canvas
     clearCanvas() {
         this.ctx = this.canvas.getContext('2d');
         const img = this.refs.image;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.drawImage(img, 0, 0) //reload the image after I clear the canvas
+        this.ctx.drawImage(img, 0, 0)
         
     }
 
     componentDidMount() {
-        // Here we set up the properties of the canvas element when the component mounts.
+        // Here I set up the properties of the canvas element when the component mounts.
         this.canvas.width = 400; //border of the canvas
         this.canvas.height = 400; //border of the canvas
         this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
-        this.ctx.lineJoin = 'round';
-        this.ctx.lineCap = 'round';
-        this.ctx.lineWidth = 10; //how wide the line is
-        const img = this.refs.image
-        // code I used when I had jpeg images. it enlarges but makes it blurry
-        // const hRatio = this.canvas.width / img.width;
-        // const vRatio = this.canvas.height / img.height;
-        // const ratio = Math.min(hRatio, vRatio);
-        // // the two lines of code below center the image on the canvas. Also, everytime you leave the page it disapears 
-        // var centerShift_x = (this.canvas.width - img.width * ratio) / 2; //added this.
-        // var centerShift_y = (this.canvas.height - img.height * ratio) / 2; //added this.
-
-        // img.onload = () => {
-        //     this.ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio)
-        // }
-
-        //wait and start drawing after the image has loaded
-        img.onload = () => {
-            this.ctx.drawImage(img, 0, 0)
-        }
+        this.ctx.fillStyle = '#A3CEF9';
+        const squareOne = this.ctx.fillRect(195, 50, 10, 10);
+        const squareTwo =this.ctx.fillRect(50, 300, 10, 10);
+        const squareThree =this.ctx.fillRect(340, 300, 10, 10);
     }
-//use require below to load and cache the image. we get the spell object from props and use .notation to get img
+
     render() {
-        console.log(this.props.spell)
+        console.log(this.props)
+        console.log(this.props.position)
         return (
-            <div className="canvas__button--container">
+            <div className="canvas__useSpell--container">
+                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p> */}
                 <canvas
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
@@ -182,13 +271,6 @@ class Canvas extends Component {
                     onMouseUp={this.endPaintEvent}
                     onMouseMove={this.onMouseMove}
                 />
-                <div>
-                    <Button className="tryAgain__button" color="primary" onClick={this.clearCanvas}>Try Again</Button>
-                    <Button className="saveImage__button" color="primary" onClick={this.createNewCanvasSpell}>Save Image to favorites</Button>
-                    </div>
-                <picture>
-                    <img ref="image" src={require(`../images/${this.props.spell.image}`)} className="hidden" alt={this.props.spell.spellName} />
-                </picture>
             </div>
         );
     }

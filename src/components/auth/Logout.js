@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Jumbotron, Button } from 'reactstrap';
 import { Link } from "react-router-dom";
 
+//I imported a jumbotron from reactstrap and made the buttons to logout or return to the spellbook
 
 class Login extends Component {
 
