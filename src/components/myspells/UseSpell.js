@@ -36,11 +36,11 @@ class UseSpell extends Component {
                 </div>
                 <div className="canvas__container">
                     <ReactCursorPosition>
-                        <div className="canvas__cursor">
-                            <CanvasCursor />
-                        </div>
                         <div className="canvas__useSpell">
                             <CanvasUseSpell spell={this.state.spell} {...this.props} />
+                        </div>
+                        <div className="canvas__cursor">
+                            <CanvasCursor />
                         </div>
                     </ReactCursorPosition>
                 </div>

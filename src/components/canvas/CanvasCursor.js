@@ -20,10 +20,10 @@ class CanvasCursor extends React.Component {
 
   componentDidMount = () => {
     // Set height and width on load because if set in state body isn't defined yet.
-    this.setState({
-      cHeight: document.body.clientHeight,
-      cWidth: document.body.clientWidth,
-    });
+    // this.setState({
+    //   cHeight: document.body.clientHeight,
+    //   cWidth: document.body.clientWidth,
+    // });
     // where I want to draw the shapes
     const canvas = this.canvas.current;
     const ctx = canvas.getContext('2d');
@@ -113,7 +113,7 @@ class CanvasCursor extends React.Component {
 
   render = () => {
     // const { cHeight, cWidth } = this.state;
-    return <canvas ref={this.canvas} width="400" height="450" />;
+    return <canvas ref={this.canvas} width="500" height="450" />;
   }
 }
 
