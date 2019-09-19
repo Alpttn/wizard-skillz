@@ -109,15 +109,15 @@ class Canvas extends Component {
 
     createNewCanvasSpell() {
         const dataURL = this.canvas.toDataURL();
-        console.log(dataURL); //long URL (64)
+        console.log(dataURL); //64 bit encoded PNG URL
         const mySpell = {
             image: dataURL,
             notes: "",
             spellId: this.props.spell.id,
             UserId: this.props.activeUser(), //this was passed down from application views
         };
-        // Create the canvas spell and redirect user to MySpells page
-        SpellBookManager.postCanvasSpell(mySpell)
+        // Create the canvas spell, save to json, and redirect user to MySpells page
+        SpellBookManager.postCanvasSpell(mySpell) 
             .then(() => this.props.history.push("/mySpells"));
     }
 
@@ -133,11 +133,12 @@ class Canvas extends Component {
     //     .then(() => this.props.history.push("/mySpells"));
     //}
 
+    //made a function that uses method from canvas
     clearCanvas() {
         this.ctx = this.canvas.getContext('2d');
         const img = this.refs.image;
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.drawImage(img, 0, 0)
+        this.ctx.drawImage(img, 0, 0) //reload the image after I clear the canvas
         
     }
 
@@ -161,6 +162,8 @@ class Canvas extends Component {
         // img.onload = () => {
         //     this.ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio)
         // }
+
+        //wait and start drawing after the image has loaded
         img.onload = () => {
             this.ctx.drawImage(img, 0, 0)
         }

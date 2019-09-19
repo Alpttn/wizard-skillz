@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './NavBar.css'
 
 // import './NavBar.css'
@@ -37,16 +38,16 @@ class NavBar extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink style={{color: '#A3CEF9'}} className="navLink" href="/">Home</NavLink>
+                <Link style={{color: '#A3CEF9'}} className="navLink" to="/">Home</Link>
               </NavItem>
               <NavItem>
-                <NavLink style={{color: 'white'}} href="/spellbook">Spell Book</NavLink>
+                <Link style={{color: 'white'}} to="/spellbook">Spell Book</Link>
               </NavItem>
               <NavItem>
-                <NavLink style={{color: 'white'}} href="/myspells">My Spells</NavLink>
+                <Link style={{color: 'white'}} to="/myspells">My Spells</Link>
               </NavItem>
               <NavItem>
-                <NavLink style={{color: 'white'}} href="/logout">Logout</NavLink>
+                <Link style={{color: 'white'}} to="/logout">Logout</Link>
               </NavItem>
             </Nav>
           </Collapse>
