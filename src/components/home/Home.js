@@ -8,13 +8,13 @@ class Home extends Component {
     return (
       <div className="backgroundHome">
         <div className="welcome__content">
-          <h1>Welcome to WizardSkillz</h1>
+          <h1>WizardSkillz</h1>
         </div>
         <div className="about__content">
-          <p>Did you just get your acceptance letter to Hogwarts? </p>
+          <p>Falling behind in your classes at Hogwarts and need to level up your spell casting skills?  </p>
         </div>
         <div className="about__content--second">
-          <p>Click the button below to practice your wand skills. </p>
+          <p>Click the button below to begin practicing </p>
         </div>
         <div className="begin__button">
         <Link to={`/spellbook`}><Button outline color="primary">I solemly swear I am up to no good</Button></Link>

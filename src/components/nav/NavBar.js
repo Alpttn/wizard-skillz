@@ -33,21 +33,21 @@ class NavBar extends Component {
     return (
       <div>
         <Navbar color="black" light expand="md">
-          <NavbarBrand style={{color: '#A3CEF9'}} href="/">Wizard Skillz</NavbarBrand>
+          <Link style={{color: '#A3CEF9'}} to="/">Wizard Skillz</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <Link style={{color: '#A3CEF9'}} className="navLink" to="/">Home</Link>
+              <NavItem className="navLink">
+                <Link className= "link" style={{color: 'white'}} to="/">Home</Link>
               </NavItem>
-              <NavItem>
-                <Link style={{color: 'white'}} to="/spellbook">Spell Book</Link>
+              <NavItem className="navLink">
+                <Link className= "link" style={{color: 'white'}} to="/spellbook">Spell Book</Link>
               </NavItem>
-              <NavItem>
-                <Link style={{color: 'white'}} to="/myspells">My Spells</Link>
+              <NavItem className="navLink">
+                <Link className= "link" style={{color: 'white'}} to="/myspells">My Spells</Link>
               </NavItem>
-              <NavItem>
-                <Link style={{color: 'white'}} to="/logout">Logout</Link>
+              <NavItem className="navLink">
+                <Link className= "link" style={{color: 'white'}} to="/logout">Logout</Link>
               </NavItem>
             </Nav>
           </Collapse>
