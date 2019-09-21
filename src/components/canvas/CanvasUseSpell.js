@@ -121,17 +121,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
 import React, { Component } from 'react';
-import SpellBookManager from '../../modules/SpellBookManager';
 import './CanvasUseSpell.css'
 
 
@@ -247,7 +237,7 @@ class Canvas extends Component {
 
     componentDidMount() {
         // Here I set up the properties of the canvas element when the component mounts.
-        this.canvas.width = 400; //border of the canvas
+        this.canvas.width = 700; //border of the canvas
         this.canvas.height = 400; //border of the canvas
         this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
         this.ctx.fillStyle = '#A3CEF9';
@@ -262,7 +252,7 @@ class Canvas extends Component {
         return (
             <div className="canvas__useSpell--container">
                 {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p> */}
-                <canvas
+                <canvas className="canvasUseSpell"
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
                     style={{ background: 'black' }} //right now the background is black but i'll change it to the practice photo
