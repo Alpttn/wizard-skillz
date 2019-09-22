@@ -1,5 +1,14 @@
 .navLink {
     color: white;
-    margin: 1em;
+    margin: 2px 1em 0 auto;
     font-family: 'Cinzel Decorative', serif;
+}
+
+.navBorder {
+    /* margin: 1em; */
+    
+}
+
+.ml-auto {
+    /* margin: .1%; */
 }

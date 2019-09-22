@@ -11,13 +11,13 @@ class Home extends Component {
           <h1>WizardSkillz</h1>
         </div>
         <div className="about__content">
-          <p>Falling behind in your classes at Hogwarts and need to level up your spell casting skills?  </p>
+          <p>Falling behind in your classes at Hogwarts and need to level up?  </p>
         </div>
         <div className="about__content--second">
-          <p>Click the button below to begin practicing </p>
+          <p>Click the button below to begin practicing your spell casting skills </p>
         </div>
         <div className="begin__button">
-        <Link to={`/spellbook`}><Button outline color="primary">I solemly swear I am up to no good</Button></Link>
+        <Link to={`/spellbook`}><Button outline color="dark">I solemly swear I am up to no good</Button></Link>
         </div>
       </div>
     )

@@ -21,7 +21,7 @@ class Canvas extends Component {
 
     isPainting = false; //I set painting to false first
     // userStrokeStyle is the color of the paint
-    userStrokeStyle = '#D3D3D3';
+    userStrokeStyle = '#5D5D5D';
     line = [];
     prevPos = { offsetX: 0, offsetY: 0 };
 
@@ -176,15 +176,15 @@ class Canvas extends Component {
                 <canvas
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
-                    style={{ background: 'black' }} //right now the background is black but i'll change it to the practice photo
+                    style={{ background: 'transparent' }} //right now the background is black but i'll change it to the practice photo
                     onMouseDown={this.onMouseDown} //invoke these functions below when the event happens
                     onMouseLeave={this.endPaintEvent}
                     onMouseUp={this.endPaintEvent}
                     onMouseMove={this.onMouseMove}
                 />
-                <div>
-                    <Button className="tryAgain__button" color="primary" onClick={this.clearCanvas}>Try Again</Button>
-                    <Button className="saveImage__button" color="primary" onClick={this.createNewCanvasSpell}>Save Image to favorites</Button>
+                <div className="buttons__div">
+                    <Button className="tryAgain__button" color="dark" onClick={this.clearCanvas}>Try Again</Button>
+                    <Button className="saveImage__button" color="dark" onClick={this.createNewCanvasSpell}>Save Image to favorites</Button>
                     </div>
                 <picture>
                     <img ref="image" src={require(`../images/${this.props.spell.image}`)} className="hidden" alt={this.props.spell.spellName} />

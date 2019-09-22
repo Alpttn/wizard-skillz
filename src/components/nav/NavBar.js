@@ -32,8 +32,8 @@ class NavBar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="black" light expand="md">
-          <Link style={{color: '#A3CEF9'}} to="/">Wizard Skillz</Link>
+        <Navbar className="navBorder" style={{ background: 'black' }} light expand="md">
+          <Link className= "navLink" style={{color: 'white'}} to="/">Wizard Skillz</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

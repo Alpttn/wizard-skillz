@@ -31,37 +31,37 @@
       "id": 1,
       "image": "lumos.svg",
       "spellName": "Lumos",
-      "description": "This spell illuminates the tip of a wand."
+      "description": "illuminates the tip of a wand"
     },
     {
       "id": 2,
       "image": "alohomora.svg",
       "spellName": "Alohomora",
-      "description": "This spell unlocks objects."
+      "description": "unlocks objects"
     },
     {
       "id": 3,
       "image": "expelliarmus.svg",
       "spellName": "Expelliarmus",
-      "description": "This spell removes an object from a recipient's hand."
+      "description": "removes object from someone's hand"
     },
     {
       "id": 4,
       "image": "wingardium.svg",
       "spellName": "Wingardium Leviosa",
-      "description": "This spell is used to make objects fly or levitate."
+      "description": "makes objects fly or levitate"
     },
     {
       "id": 5,
       "image": "flipendo.svg",
       "spellName": "Flipendo",
-      "description": "This spell knocks an object backwards."
+      "description": "knocks objects backwards"
     },
     {
       "id": 6,
       "image": "reparo.svg",
       "spellName": "Reparo",
-      "description": "This spell repares broken objects."
+      "description": "repares broken objects"
     }
   ],
   "mySpells": [
