@@ -69,7 +69,7 @@ class EditMySpellNotes extends React.Component {
     render() {
         return (
             <div>
-                <Button color="primary" onClick={this.toggle}>Edit Spell Notes</Button>
+                <Button color="dark" onClick={this.toggle}>Edit Spell Notes</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle} charCode={<i class="icon-foo">&#xf0e7</i>}>Edit Spell Notes</ModalHeader>
                     <ModalBody>

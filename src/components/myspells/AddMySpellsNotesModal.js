@@ -64,7 +64,7 @@ class AddMySpellsNotesModal extends React.Component {
             <div>
         <Form inline onSubmit={e => e.preventDefault()}>
           {" "}
-          <Button color="primary" onClick={this.toggle}>
+          <Button color="dark" onClick={this.toggle}>
             Add Spell Notes
           </Button>
         </Form>

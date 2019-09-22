@@ -21,7 +21,7 @@ class Canvas extends Component {
 
     isPainting = false; //I set painting to false first
     // userStrokeStyle is the color of the paint
-    userStrokeStyle = '#5D5D5D';
+    userStrokeStyle = '#16315C';
     line = [];
     prevPos = { offsetX: 0, offsetY: 0 };
 

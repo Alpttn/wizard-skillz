@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     height: 100%;
-    background-color: black;
+    /* background-color: black; */
+    background: url(https://images-na.ssl-images-amazon.com/images/I/814SET9mazL._SL1500_.jpg) ;
 
 }
 

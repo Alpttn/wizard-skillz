@@ -3,3 +3,13 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 } */
+
+.addDelete__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.mySpells__card__content {
+    margin: 20px;
+}
