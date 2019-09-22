@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import MySpellsCard from "./MySpellsCard"
 import SpellBookManager from "../../modules/SpellBookManager"
+import './MySpellsList.css'
 
 //This component renders all the saved images drawn on by user
 

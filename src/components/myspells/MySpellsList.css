@@ -1,0 +1,12 @@
+.container__mySpells-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    background-color: black;
+
+}
+
+.body {
+    height: 100%;
+}
