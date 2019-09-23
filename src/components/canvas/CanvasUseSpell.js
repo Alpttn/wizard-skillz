@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './CanvasUseSpell.css'
+import SpellBookManager from "../../modules/SpellBookManager"
 
 class CanvasUseSpell extends Component {
     constructor(props) { //can use this format instead of state:
@@ -9,6 +10,28 @@ class CanvasUseSpell extends Component {
         this.endPaintEvent = this.endPaintEvent.bind(this);
         // this.clearCanvas = this.clearCanvas.bind(this);
     }
+
+    state = {
+        spell: {}
+    }
+
+    getSpellRenderCanvas = () => {
+    SpellBookManager.getSpell(this.props.spellId).then((spellObj) => {
+        // console.log("render", useSpell)
+        this.canvas.width = 700; //border of the canvas
+        this.canvas.height = 400; //border of the canvas
+        this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
+        this.ctx.fillStyle = '#A3CEF9';
+        this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70);
+        console.log("testformount", this.props)
+        this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70);
+        this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
+        // this.setState({
+        //     useSpell: useSpell
+        // })
+    })
+}
+
 
     isPainting = false; //we set painting to false first
     // userStrokeStyle is the color of the paint
@@ -108,14 +131,15 @@ class CanvasUseSpell extends Component {
 
     componentDidMount() {
         // Here I set up the properties of the canvas element when the component mounts.
-        this.canvas.width = 700; //border of the canvas
-        this.canvas.height = 400; //border of the canvas
-        this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
-        this.ctx.fillStyle = '#A3CEF9';
-        this.ctx.fillRect(this.props.spell.boxOneXCord, this.props.spell.boxOneYCord, 90, 70);
-        console.log("testformount", this.props)
-        this.ctx.fillRect(200, 300, 90, 70);
-        this.ctx.fillRect(430, 300, 90, 70);
+        // this.canvas.width = 700; //border of the canvas
+        // this.canvas.height = 400; //border of the canvas
+        // this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
+        // this.ctx.fillStyle = '#A3CEF9';
+        // this.ctx.fillRect(this.props.spell.boxOneXCord, this.props.spell.boxOneYCord, 90, 70);
+        // console.log("testformount", this.props)
+        // this.ctx.fillRect(200, 300, 90, 70);
+        // this.ctx.fillRect(430, 300, 90, 70);
+        this.getSpellRenderCanvas()
     }
     
     render() {

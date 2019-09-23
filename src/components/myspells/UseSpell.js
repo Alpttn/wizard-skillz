@@ -13,10 +13,10 @@ class UseSpell extends Component {
         useSpell: {}
     };
 
+    spellId = parseInt(this.props.match.params.spellId) //key is spellId and value is the actual id in the url
     componentDidMount() {
-        const spellId = parseInt(this.props.match.params.spellId) //key is spellId and value is the actual id in the url
 // console.log("hiiii", this.props.match.params.spellId)
-        SpellBookManager.getSpell(spellId).then((useSpell) => {
+        SpellBookManager.getSpell(this.spellId).then((useSpell) => {
             // console.log("render", useSpell)
             this.setState({
                 useSpell: useSpell
@@ -30,14 +30,14 @@ class UseSpell extends Component {
         return (
             <React.Fragment>
                 <div className="heading__directions--conatiner">
-                    <h1 className="heading">Lumos!<br />
+                    <h1 className="heading">{this.state.useSpell.spellName}!<br />
                     </h1>
                     <p className="directions">Cast your spell!</p>
                 </div>
                 <div className="canvas__container">
                     <ReactCursorPosition>
                         <div className="canvas__useSpell">
-                            <CanvasUseSpell spell={this.state.useSpell} {...this.props} />
+                            <CanvasUseSpell spellId={this.spellId} {...this.props} />
                         </div>
                         <div className="canvas__cursor">
                             <CanvasCursor />
