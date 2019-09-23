@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Modal, Input, FormGroup, Label, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import SpellBookManager from "../../modules/SpellBookManager"
 import './EditMySpellNotes.css'
+import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 
 class EditMySpellNotes extends React.Component {
     constructor(props) {
@@ -71,7 +72,7 @@ class EditMySpellNotes extends React.Component {
             <div>
                 <Button color="dark" onClick={this.toggle}>Edit Spell Notes</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle} charCode={<i class="icon-foo">&#xf0e7</i>}>Edit Spell Notes</ModalHeader>
+                    <ModalHeader toggle={this.toggle} charCode={<i className="icon-bolt">colloportus</i>}>Edit Spell Notes</ModalHeader>
                     <ModalBody>
                         <FormGroup>
                             <Label for="exampleText">Change notes here:</Label>
