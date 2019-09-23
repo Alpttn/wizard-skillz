@@ -55,7 +55,12 @@ export default {
           },
           body: JSON.stringify(editedNoteObj)
         }).then(data => data.json());
-      }
+      },
+      getUseSpell(id) {
+        return fetch(`${remoteURL}/useSpells/${id}`).then(result =>
+            result.json()
+        );
+    },
 
 
 };

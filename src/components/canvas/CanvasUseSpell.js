@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import './CanvasUseSpell.css'
 
-class Canvas extends Component {
+class CanvasUseSpell extends Component {
     constructor(props) { //can use this format instead of state:
         super(props);
         this.onMouseDown = this.onMouseDown.bind(this); //this represents the canvas. I'm not using arrow functions so I have to bind "this" to the component instance using the bind method. 
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
-        this.clearCanvas = this.clearCanvas.bind(this);
+        // this.clearCanvas = this.clearCanvas.bind(this);
     }
-    // state = {
-
-    // };
 
     isPainting = false; //we set painting to false first
     // userStrokeStyle is the color of the paint
@@ -101,14 +98,13 @@ class Canvas extends Component {
     // this.prevPos = { offsetX, offsetY };
     //}
 
-
-    clearCanvas() {
-        this.ctx = this.canvas.getContext('2d');
-        const img = this.refs.image;
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.drawImage(img, 0, 0)
+    // clearCanvas() {
+    //     this.ctx = this.canvas.getContext('2d');
+    //     const img = this.refs.image;
+    //     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    //     this.ctx.drawImage(img, 0, 0)
         
-    }
+    // }
 
     componentDidMount() {
         // Here I set up the properties of the canvas element when the component mounts.
@@ -116,14 +112,18 @@ class Canvas extends Component {
         this.canvas.height = 400; //border of the canvas
         this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
         this.ctx.fillStyle = '#A3CEF9';
-        const squareOne = this.ctx.fillRect(315, 50, 90, 70);
-        const squareTwo =this.ctx.fillRect(200, 300, 90, 70);
-        const squareThree =this.ctx.fillRect(430, 300, 90, 70);
+        this.ctx.fillRect(this.props.spell.boxOneXCord, this.props.spell.boxOneYCord, 90, 70);
+        console.log("testformount", this.props)
+        this.ctx.fillRect(200, 300, 90, 70);
+        this.ctx.fillRect(430, 300, 90, 70);
     }
-
+    
     render() {
-        console.log(this.props)
-        console.log(this.props.position)
+        // console.log("test", this.props)
+        console.log("testcanvas", this.canvas)
+        // console.log("I love you", this.props)
+        // console.log(this.props)
+        // console.log(this.props.position)
         return (
             <div className="canvas__useSpell--container">
                 {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p> */}
@@ -140,4 +140,4 @@ class Canvas extends Component {
         );
     }
 }
-export default Canvas;
+export default CanvasUseSpell;

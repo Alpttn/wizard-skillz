@@ -10,22 +10,23 @@ import './UseSpell.css'
 class UseSpell extends Component {
 
     state = {
-        spell: {}
+        useSpell: {}
     };
 
     componentDidMount() {
         const spellId = parseInt(this.props.match.params.spellId) //key is spellId and value is the actual id in the url
-
-        SpellBookManager.getSpell(spellId).then((spell) => {
+// console.log("hiiii", this.props.match.params.spellId)
+        SpellBookManager.getSpell(spellId).then((useSpell) => {
+            // console.log("render", useSpell)
             this.setState({
-                spell: spell
+                useSpell: useSpell
             })
         })
     };
 
 
     render() {
-
+        console.log("flag", this.state.useSpell)
         return (
             <React.Fragment>
                 <div className="heading__directions--conatiner">
@@ -36,7 +37,7 @@ class UseSpell extends Component {
                 <div className="canvas__container">
                     <ReactCursorPosition>
                         <div className="canvas__useSpell">
-                            <CanvasUseSpell spell={this.state.spell} {...this.props} />
+                            <CanvasUseSpell spell={this.state.useSpell} {...this.props} />
                         </div>
                         <div className="canvas__cursor">
                             <CanvasCursor />

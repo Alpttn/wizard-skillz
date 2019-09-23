@@ -11,7 +11,8 @@ class Practice extends Component {
 //the route props return history, match, and location. 
     componentDidMount() {
         const spellId = parseInt(this.props.match.params.spellId) //key is spellId and value is the actual id in the url
-
+        console.log('spellId: ', spellId);
+console.log("hi there", this.props.match.params, "hi there")
         //I want to get one spell from the spellbook.
         SpellBookManager.getSpell(spellId).then((spell) => {
             this.setState({

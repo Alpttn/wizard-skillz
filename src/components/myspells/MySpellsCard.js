@@ -8,6 +8,9 @@ import './MySpellsCard.css'
 
 class MySpellsCard extends Component {
     render() {
+        // console.log("heelo", this.props)
+        // console.log("heelo", this.props.mySpell.spellId)
+
         return (
             <React.Fragment>
                 <div className="mySpells__card">
@@ -38,7 +41,7 @@ class MySpellsCard extends Component {
                                     </section>
                                 }
                                 <div>
-                                    <Link to={`/usespell`}><Button color="dark">Use this spell</Button></Link>
+                                    <Link to={`/usespell/${this.props.mySpell.spellId}`}><Button color="dark">Use this spell</Button></Link>
                                 </div>
                             </div>
                             <Button color="dark" onClick={() => this.props.deleteMySpell(this.props.mySpell.id)}>Delete This Spell</Button>

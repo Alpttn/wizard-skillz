@@ -27,9 +27,9 @@ class CanvasCursor extends React.Component {
     // where I want to draw the shapes
     const canvas = this.canvas.current;
     const ctx = canvas.getContext('2d');
-    ctx.fillRect(195, 50, 10, 10);
-    const squareTwo =ctx.fillRect(50, 300, 10, 10);
-    const squareThree =ctx.fillRect(340, 300, 10, 10);
+    // ctx.fillRect(195, 50, 10, 10);
+    // const squareTwo =ctx.fillRect(50, 300, 10, 10);
+    // const squareThree =ctx.fillRect(340, 300, 10, 10);
 
     // window.addEventListener(
     //   'resize',

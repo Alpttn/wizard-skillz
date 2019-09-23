@@ -62,7 +62,7 @@ class ApplicationViews extends Component {
                 }
                 } />
 
-                <Route exact path="/usespell" render={props => {
+                <Route exact path="/usespell/:spellId(\d+)" render={props => {
                     if (this.isAuthenticated()) {
                         return <UseSpell activeUser={this.activeUser} {...props} />
                     }
