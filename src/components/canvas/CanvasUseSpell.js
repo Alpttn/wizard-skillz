@@ -13,25 +13,26 @@ class CanvasUseSpell extends Component {
     }
 
     state = {
-        spell: {}
+        spell: {},
+        isInBox: false
     }
 
     getSpellRenderCanvas = () => {
-    SpellBookManager.getSpell(this.props.spellId).then((spellObj) => {
-        // console.log("render", useSpell)
-        this.canvas.width = 700; //border of the canvas
-        this.canvas.height = 400; //border of the canvas
-        this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
-        this.ctx.fillStyle = '#A3CEF9';
-        this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70);
-        console.log("testformount", this.props)
-        this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70);
-        this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
-        // this.setState({
-        //     useSpell: useSpell
-        // })
-    })
-}
+        SpellBookManager.getSpell(this.props.spellId).then((spellObj) => {
+            // console.log("render", useSpell)
+            this.canvas.width = 700; //border of the canvas
+            this.canvas.height = 400; //border of the canvas
+            this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
+            this.ctx.fillStyle = '#A3CEF9';
+            this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70);
+            console.log("testformount", this.props)
+            this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70);
+            this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
+            this.setState({
+                spell: spellObj
+            })
+        })
+    }
 
 
     isPainting = false; //we set painting to false first
@@ -127,31 +128,33 @@ class CanvasUseSpell extends Component {
     //     const img = this.refs.image;
     //     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     //     this.ctx.drawImage(img, 0, 0)
-        
+
+    // }
+
+    // checkInBox = () => {
+
     // }
 
     componentDidMount() {
         this.getSpellRenderCanvas()
     }
-    
+
     render() {
-        console.log("position ", ) //where I'm checking to see if the mouse is detected from API
-        console.log("testcanvas", this.canvas)
+        // console.log("position", this.props) //where I'm checking to see if the mouse is detected from API
+        // console.log("testcanvas", this.canvas)
         return (
-            <div className="canvas__useSpell--container">
+            <div className="canvas__useSpell--container" >
                 {/* console.log("Allie Look", this.props.position.x) */}
-                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p> */}
-                <ReactCursorPosition activationInteractionMouse={INTERACTIONS.HOVER}>
+                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}, isInBox=        {this.props.isInBox ? "Fuck yeah" : "Sry KYS"}, lastBoxTouched={this.props.lastBoxTouched}</p> */}
                 <canvas className="canvasUseSpell"
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
-                    style={{ background: 'black' }} 
+                    style={{ background: 'black'}}
                     onMouseDown={this.onMouseDown} //invoke these functions below when the event happens
                     onMouseLeave={this.endPaintEvent}
                     onMouseUp={this.endPaintEvent}
                     onMouseMove={this.onMouseMove}
                 />
-                </ReactCursorPosition>
             </div>
         );
     }
