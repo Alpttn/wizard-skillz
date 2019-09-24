@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CanvasUseSpell.css'
 import SpellBookManager from "../../modules/SpellBookManager"
+import ReactCursorPosition, { INTERACTIONS } from 'react-cursor-position'
 
 class CanvasUseSpell extends Component {
     constructor(props) { //can use this format instead of state:
@@ -130,36 +131,27 @@ class CanvasUseSpell extends Component {
     // }
 
     componentDidMount() {
-        // Here I set up the properties of the canvas element when the component mounts.
-        // this.canvas.width = 700; //border of the canvas
-        // this.canvas.height = 400; //border of the canvas
-        // this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
-        // this.ctx.fillStyle = '#A3CEF9';
-        // this.ctx.fillRect(this.props.spell.boxOneXCord, this.props.spell.boxOneYCord, 90, 70);
-        // console.log("testformount", this.props)
-        // this.ctx.fillRect(200, 300, 90, 70);
-        // this.ctx.fillRect(430, 300, 90, 70);
         this.getSpellRenderCanvas()
     }
     
     render() {
-        // console.log("test", this.props)
+        console.log("position ", ) //where I'm checking to see if the mouse is detected from API
         console.log("testcanvas", this.canvas)
-        // console.log("I love you", this.props)
-        // console.log(this.props)
-        // console.log(this.props.position)
         return (
             <div className="canvas__useSpell--container">
+                {/* console.log("Allie Look", this.props.position.x) */}
                 {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}</p> */}
+                <ReactCursorPosition activationInteractionMouse={INTERACTIONS.HOVER}>
                 <canvas className="canvasUseSpell"
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
-                    style={{ background: 'black' }} //right now the background is black but i'll change it to the practice photo
+                    style={{ background: 'black' }} 
                     onMouseDown={this.onMouseDown} //invoke these functions below when the event happens
                     onMouseLeave={this.endPaintEvent}
                     onMouseUp={this.endPaintEvent}
                     onMouseMove={this.onMouseMove}
                 />
+                </ReactCursorPosition>
             </div>
         );
     }
