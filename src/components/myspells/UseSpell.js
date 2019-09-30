@@ -16,7 +16,7 @@ class UseSpell extends Component {
         spellProgress: 0,
         posX: 0,
         posY: 0,
-        didIWin: "fuck no"
+        didIWin: "no"
     };
 
     spellId = parseInt(this.props.match.params.spellId) //key is spellId and value is the actual id in the url
@@ -82,7 +82,7 @@ class UseSpell extends Component {
             lastBoxTouched = boxMousedOver;
 
             if (lastBoxTouched === 3) {
-                didIWin = "you fucking win";
+                didIWin = "you win";
             }
         } else if (isInBox && boxMousedOver !== lastBoxTouched) {
             // console.log('test BBBBB!')

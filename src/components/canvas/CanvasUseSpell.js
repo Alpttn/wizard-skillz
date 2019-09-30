@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CanvasUseSpell.css'
 import SpellBookManager from "../../modules/SpellBookManager"
-import ReactCursorPosition, { INTERACTIONS } from 'react-cursor-position'
+import ReactCursorPosition, { INTERACTIONS } from 'react-cursor-position' //didn't end up needing this. Everything I need is in props
 
 class CanvasUseSpell extends Component {
     constructor(props) { //can use this format instead of state:
@@ -24,9 +24,13 @@ class CanvasUseSpell extends Component {
             this.canvas.height = 400; //border of the canvas
             this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
             this.ctx.fillStyle = '#A3CEF9';
-            this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70);
+            this.ctx.lineJoin = 'round'; //makes the line smooth
+            this.ctx.lineCap = 'round'; //rounds edges
+            this.ctx.lineWidth = 10; //how wide the line is
+            //I am dynamically rendering the squares and hardcoding the width and height so they are all the same.
+            this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70); //fillRect method draws squares
             console.log("testformount", this.props)
-            this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70);
+            this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70); 
             this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
             this.setState({
                 spell: spellObj
@@ -145,11 +149,11 @@ class CanvasUseSpell extends Component {
         return (
             <div className="canvas__useSpell--container" >
                 {/* console.log("Allie Look", this.props.position.x) */}
-                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}, isInBox=        {this.props.isInBox ? "Fuck yeah" : "Sry KYS"}, lastBoxTouched={this.props.lastBoxTouched}</p> */}
+                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}, isInBox=        {this.props.isInBox ? "yeah" : "Sry"}, lastBoxTouched={this.props.lastBoxTouched}</p> */}
                 <canvas className="canvasUseSpell"
                     // I use the ref attribute to get direct access to the canvas element. 
                     ref={(ref) => (this.canvas = ref)}
-                    style={{ background: 'black'}}
+                    style={{ background: 'black' }}
                     onMouseDown={this.onMouseDown} //invoke these functions below when the event happens
                     onMouseLeave={this.endPaintEvent}
                     onMouseUp={this.endPaintEvent}
