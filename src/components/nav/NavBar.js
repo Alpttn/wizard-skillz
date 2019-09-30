@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './NavBar.css'
-
-// import './NavBar.css'
-
-// reactstrap code
 import {
   Collapse,
   Navbar,
@@ -14,6 +10,8 @@ import {
   NavItem,
   NavLink,
    } from 'reactstrap';
+
+   //this component holds reactStrap Navbar logic
 
 class NavBar extends Component {
   constructor(props) {

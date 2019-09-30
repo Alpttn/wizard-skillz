@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import './Home.css'
 
+//this component holds the homepage
+
 class Home extends Component {
   render() {
     return (

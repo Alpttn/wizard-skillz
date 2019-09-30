@@ -1,9 +1,9 @@
-// canvas.js
-
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import './Canvas.css'
 import SpellBookManager from '../../modules/SpellBookManager';
+
+//this component is the canvas for the practice page that allows the user to trace the spell outline
 
 
 class Canvas extends Component {
@@ -15,10 +15,7 @@ class Canvas extends Component {
         this.createNewCanvasSpell = this.createNewCanvasSpell.bind(this);
         this.clearCanvas = this.clearCanvas.bind(this);
     }
-    // state = {
-
-    // };
-
+    
     isPainting = false; //I set painting to false first
     // userStrokeStyle is the color of the paint
     userStrokeStyle = '#16315C';
@@ -151,18 +148,7 @@ class Canvas extends Component {
         this.ctx.lineCap = 'round';
         this.ctx.lineWidth = 10; //how wide the line is
         const img = this.refs.image
-        // code I used when I had jpeg images. it enlarges but makes it blurry
-        // const hRatio = this.canvas.width / img.width;
-        // const vRatio = this.canvas.height / img.height;
-        // const ratio = Math.min(hRatio, vRatio);
-        // // the two lines of code below center the image on the canvas. Also, everytime you leave the page it disapears 
-        // var centerShift_x = (this.canvas.width - img.width * ratio) / 2; //added this.
-        // var centerShift_y = (this.canvas.height - img.height * ratio) / 2; //added this.
-
-        // img.onload = () => {
-        //     this.ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio)
-        // }
-
+       
         //wait and start drawing after the image has loaded
         img.onload = () => {
             this.ctx.drawImage(img, 0, 0)
