@@ -26,7 +26,7 @@ class CanvasUseSpell extends Component {
             this.canvas.width = 700; //border of the canvas
             this.canvas.height = 400; //border of the canvas
             this.ctx = this.canvas.getContext('2d'); //get reference to the canvas
-            this.ctx.fillStyle = '#A3CEF9';
+            this.ctx.fillStyle = 'black';
             this.ctx.lineJoin = 'round'; //makes the line smooth
             this.ctx.lineCap = 'round'; //rounds edges
             this.ctx.lineWidth = 10; //how wide the line is
@@ -140,10 +140,6 @@ class CanvasUseSpell extends Component {
             this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
         })
     }
-
-    // checkInBox = () => {
-
-    // }
 
     componentDidMount() {
         this.getSpellRenderCanvas()

@@ -83,6 +83,7 @@ class UseSpell extends Component {
 
             if (lastBoxTouched === 3) {
                 didIWin = "you win";
+                alert("You're a wizard!")
             }
         } else if (isInBox && boxMousedOver !== lastBoxTouched) {
             // console.log('test BBBBB!')
@@ -109,8 +110,11 @@ class UseSpell extends Component {
                     <div className="heading__directions--conatiner">
                         <h1 className="useSpell__heading">{this.state.useSpell.spellName}!<br />
                         </h1>
-                        <p className="directions">Cast your spell!</p>
-                        <p>posX={this.state.posX} posY={this.state.posY} inABox={this.state.isInBox ? "yes" : "no"} lastBoxTouched={this.state.lastBoxTouched} didIWin={this.state.didIWin}</p>
+                        <div className="directions">
+                            <p>Click and drag the mouse in the correct spell pattern to cast your spell!</p>
+                        </div>
+                        {/* <p className="directions">Cast your spell!</p>
+                        <p>posX={this.state.posX} posY={this.state.posY} inABox={this.state.isInBox ? "yes" : "no"} lastBoxTouched={this.state.lastBoxTouched} didIWin={this.state.didIWin}</p> */}
                     </div>
                     <div className="canvas__container">
                         <ReactCursorPosition {...{

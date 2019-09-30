@@ -20,6 +20,17 @@
      background: url(http://images.fandango.com/images/fandangoblog/hogwartsschoolpotter.jpg) no-repeat 50% 50%; 
 }  
 
+.directions {
+    font-family: 'raleway', serif;
+    color: white;  
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    }
+
+.useSpell__directions {
+
+}
 
 /* .canvasUseSpell {
     top: 10;
