@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './CanvasUseSpell.css'
 import SpellBookManager from "../../modules/SpellBookManager"
+import { Button } from 'reactstrap';
 import ReactCursorPosition, { INTERACTIONS } from 'react-cursor-position' //didn't end up needing this. Everything I need is in props
 
 //this component holds the canvas for casting the spell after you click the use spell button
@@ -11,7 +12,7 @@ class CanvasUseSpell extends Component {
         this.onMouseDown = this.onMouseDown.bind(this); //this represents the canvas. I'm not using arrow functions so I have to bind "this" to the component instance using the bind method. 
         this.onMouseMove = this.onMouseMove.bind(this);
         this.endPaintEvent = this.endPaintEvent.bind(this);
-        // this.clearCanvas = this.clearCanvas.bind(this);
+        this.clearCanvas = this.clearCanvas.bind(this);
     }
 
     state = {
@@ -32,7 +33,7 @@ class CanvasUseSpell extends Component {
             //I am dynamically rendering the squares and hardcoding the width and height so they are all the same.
             this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70); //fillRect method draws squares
             console.log("testformount", this.props)
-            this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70); 
+            this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70);
             this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
             this.setState({
                 spell: spellObj
@@ -129,13 +130,16 @@ class CanvasUseSpell extends Component {
     // this.prevPos = { offsetX, offsetY };
     //}
 
-    // clearCanvas() {
-    //     this.ctx = this.canvas.getContext('2d');
-    //     const img = this.refs.image;
-    //     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    //     this.ctx.drawImage(img, 0, 0)
-
-    // }
+    clearCanvas() {
+        SpellBookManager.getSpell(this.props.spellId).then((spellObj) => {
+            this.ctx = this.canvas.getContext('2d');
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.ctx.fillRect(spellObj.boxOneXCord, spellObj.boxOneYCord, 90, 70); //fillRect method draws squares
+            console.log("testformount", this.props)
+            this.ctx.fillRect(spellObj.boxTwoXCord, spellObj.boxTwoYCord, 90, 70);
+            this.ctx.fillRect(spellObj.boxThreeXCord, spellObj.boxThreeYCord, 90, 70);
+        })
+    }
 
     // checkInBox = () => {
 
@@ -149,19 +153,24 @@ class CanvasUseSpell extends Component {
         // console.log("position", this.props) //where I'm checking to see if the mouse is detected from API
         // console.log("testcanvas", this.canvas)
         return (
-            <div className="canvas__useSpell--container" >
-                {/* console.log("Allie Look", this.props.position.x) */}
-                {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}, isInBox=        {this.props.isInBox ? "yeah" : "Sry"}, lastBoxTouched={this.props.lastBoxTouched}</p> */}
-                <canvas className="canvasUseSpell"
-                    // I use the ref attribute to get direct access to the canvas element. 
-                    ref={(ref) => (this.canvas = ref)}
-                    style={{ background: 'black' }}
-                    onMouseDown={this.onMouseDown} //invoke these functions below when the event happens
-                    onMouseLeave={this.endPaintEvent}
-                    onMouseUp={this.endPaintEvent}
-                    onMouseMove={this.onMouseMove}
-                />
-            </div>
+            <React.Fragment>
+                <div className="canvas__useSpell--container" >
+                    {/* console.log("Allie Look", this.props.position.x) */}
+                    {/* <p className="color__coordinates">x={this.props.position.x}, y={this.props.position.y}, isInBox=        {this.props.isInBox ? "yeah" : "Sry"}, lastBoxTouched={this.props.lastBoxTouched}</p> */}
+                    <canvas className="canvasUseSpell"
+                        // I use the ref attribute to get direct access to the canvas element. 
+                        ref={(ref) => (this.canvas = ref)}
+                        style={{ background: 'black' }}
+                        onMouseDown={this.onMouseDown} //invoke these functions below when the event happens
+                        onMouseLeave={this.endPaintEvent}
+                        onMouseUp={this.endPaintEvent}
+                        onMouseMove={this.onMouseMove}
+                    />
+                </div>
+                <div>
+                    <Button className="useSpell__tryAgain--button" color="dark" onClick={this.clearCanvas}>Try Again</Button>
+                </div>
+            </React.Fragment>
         );
     }
 }
