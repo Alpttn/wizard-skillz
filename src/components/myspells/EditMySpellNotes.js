@@ -4,6 +4,8 @@ import SpellBookManager from "../../modules/SpellBookManager"
 import './EditMySpellNotes.css'
 import '../../../node_modules/@fortawesome/fontawesome-free/css/all.css'
 
+//this component holds the modal for editing the notes on MySpells
+
 class EditMySpellNotes extends React.Component {
     constructor(props) {
         super(props);

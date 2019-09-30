@@ -3,6 +3,8 @@ import './CanvasUseSpell.css'
 import SpellBookManager from "../../modules/SpellBookManager"
 import ReactCursorPosition, { INTERACTIONS } from 'react-cursor-position' //didn't end up needing this. Everything I need is in props
 
+//this component holds the canvas for casting the spell after you click the use spell button
+
 class CanvasUseSpell extends Component {
     constructor(props) { //can use this format instead of state:
         super(props);

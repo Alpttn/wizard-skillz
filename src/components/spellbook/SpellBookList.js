@@ -4,6 +4,8 @@ import SpellBookManager from "../../modules/SpellBookManager"
 import SpellBookCarousel from "./SpellBookCarousel";
 import './SpellBookList.css'
 
+//this component is the main component that renders the carousel for the user to choose spells from. 
+
 class SpellBookList extends Component {
 
     state = {

@@ -3,6 +3,8 @@ import Canvas from '../canvas/Canvas';
 import SpellBookManager from '../../modules/SpellBookManager';
 import './Practice.css'
 
+//this component is the main component for the practice page. It renders the canvas that allows the user to trace the background image and save it to myspells.
+
 class Practice extends Component {
 
     state = {

@@ -2,6 +2,8 @@ import React from 'react';
 
 /* Mouse trail adapted from a jQuery Codepen by Bryan C https://codepen.io/bryjch/pen/QEoXwA */
 
+//not using this component at the moment. This holds the cool cursor tail that won't work at the moment. 
+
 class Point {
   constructor(x, y) {
     this.x = x;

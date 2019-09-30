@@ -11,6 +11,8 @@ import {
     CarouselCaption
 } from 'reactstrap';
 
+//this component is the logic for the carousel that replaces the spellbookcard. Basically the carousel incorporates the cards into it's slides
+
 
 class SpellBookCarousel extends Component {
 

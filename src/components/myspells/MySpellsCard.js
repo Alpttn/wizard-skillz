@@ -5,6 +5,8 @@ import EditMySpellNotes from "./EditMySpellNotes";
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import './MySpellsCard.css'
 
+// This component is the card for each PNG rendered from the practice canvas. 
+
 
 class MySpellsCard extends Component {
     render() {

@@ -68,39 +68,9 @@ class ApplicationViews extends Component {
                     }
                 }
                 } />
-
-
-                {/* <Route
-                    exact
-                    path="/news"
-                    render={props => {
-                        if (this.isAuthenticated()) {
-                            return <NewsList activeUser={this.activeUser} {...props} />;
-
-                            // Remove null and return the component which will show news articles
-                        }
-                    }}
-                /> */}
             </React.Fragment>
         )
     }
 }
-
-// // old code 
-// /* class ApplicationViews extends Component {
-
-//     render() {
-//       return (
-//         <React.Fragment>
-//           <Route exact path="/" render={(props) => {
-//             return <Home />
-//           }} />
-//           {/* <Route path="/animals" render={(props) => {
-//             return <AnimalCard />
-//           }} /> */}
-//         {/* </React.Fragment>
-//       )
-//     }
-//   } */} */}
 
 export default ApplicationViews

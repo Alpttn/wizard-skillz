@@ -3,7 +3,7 @@ import MySpellsCard from "./MySpellsCard"
 import SpellBookManager from "../../modules/SpellBookManager"
 import './MySpellsList.css'
 
-//This component renders all the saved images drawn on by user
+//This component renders all of the MySpellsCards from the user. The main component for Myspells. From Here you can use the spell, add/edit notes, and delete the spell altogether. 
 
 class MySpellsList extends Component {
 

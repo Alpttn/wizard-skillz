@@ -5,7 +5,7 @@ import CanvasUseSpell from "../canvas/CanvasUseSpell";
 import CanvasCursor from "../canvas/CanvasCursor";
 import './UseSpell.css'
 
-
+//this is the main component for the use spell page. It renders the canvas and holds the logic for hitting the sqaures in order. 
 
 class UseSpell extends Component {
 
@@ -33,9 +33,9 @@ class UseSpell extends Component {
     checkInBox = (position) => {
 
         const spell = this.state.useSpell;
-        const posX = position.position.x;
+        const posX = position.position.x; //get these values from the react-cursor-postion props
         const posY = position.position.y;
-
+        //plotted the boxes and stuck them in an array so I could keep track of them. 
         const spellBoxes = [
             {
                 boxNum: 1,
@@ -62,10 +62,10 @@ class UseSpell extends Component {
 
         // console.log('hey', spellBoxes)
 
-        let isInBox = false;
-        let lastBoxTouched = this.state.lastBoxTouched;
+        let isInBox = false; //is my cursor in the square? 
+        let lastBoxTouched = this.state.lastBoxTouched; //I set this to 0 so I can increment it. 
         let boxMousedOver = 0;
-        let didIWin = this.state.didIWin;
+        let didIWin = this.state.didIWin; //state needs to keep track of if I hit the boxes in the correct order
 
         spellBoxes.forEach(box => {
             // console.log('I"M NOT IN  A BOX YET!!!!!!!!!!!!!!!!');
@@ -87,7 +87,7 @@ class UseSpell extends Component {
         } else if (isInBox && boxMousedOver !== lastBoxTouched) {
             // console.log('test BBBBB!')
             lastBoxTouched = 0;
-        } 
+        }
 
         // console.log('about to set lastBoxTouched To:', lastBoxTouched);
 
