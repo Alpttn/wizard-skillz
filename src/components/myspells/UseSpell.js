@@ -105,21 +105,23 @@ class UseSpell extends Component {
         // console.log("flag", this.state.useSpell)
         return (
             <React.Fragment>
-                <div className="heading__directions--conatiner">
-                    <h1 className="heading">{this.state.useSpell.spellName}!<br />
-                    </h1>
-                    <p className="directions">Cast your spell!</p>
-                    <p>posX={this.state.posX} posY={this.state.posY} inABox={this.state.isInBox ? "yes" : "no"} lastBoxTouched={this.state.lastBoxTouched} didIWin={this.state.didIWin}</p>
-                </div>
-                <div className="canvas__container">
-                    <ReactCursorPosition {...{
-                        onPositionChanged: props => this.checkInBox(props)
-                    }}>
-                        {/* <React.Fragment> */}
-                        <CanvasUseSpell spellId={this.spellId} isInBox={this.state.isInBox} lastBoxTouched={this.state.lastBoxTouched} {...this.props} />
-                        {/* <CanvasCursor /> */}
-                        {/* </React.Fragment> */}
-                    </ReactCursorPosition>
+                <div className="useSpell__background">
+                    <div className="heading__directions--conatiner">
+                        <h1 className="useSpell__heading">{this.state.useSpell.spellName}!<br />
+                        </h1>
+                        <p className="directions">Cast your spell!</p>
+                        <p>posX={this.state.posX} posY={this.state.posY} inABox={this.state.isInBox ? "yes" : "no"} lastBoxTouched={this.state.lastBoxTouched} didIWin={this.state.didIWin}</p>
+                    </div>
+                    <div className="canvas__container">
+                        <ReactCursorPosition {...{
+                            onPositionChanged: props => this.checkInBox(props)
+                        }}>
+                            {/* <React.Fragment> */}
+                            <CanvasUseSpell spellId={this.spellId} isInBox={this.state.isInBox} lastBoxTouched={this.state.lastBoxTouched} {...this.props} />
+                            {/* <CanvasCursor /> */}
+                            {/* </React.Fragment> */}
+                        </ReactCursorPosition>
+                    </div>
                 </div>
             </React.Fragment>
         )

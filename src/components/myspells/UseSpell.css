@@ -4,6 +4,22 @@
     
 }
 
+/* .body, html {
+    background-color: black !important;
+} */
+
+
+.useSpell__background {
+    height: 100vh;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: auto;
+    top: 0;
+     background: url(http://images.fandango.com/images/fandangoblog/hogwartsschoolpotter.jpg) no-repeat 50% 50%; 
+}  
+
 
 /* .canvasUseSpell {
     top: 10;
